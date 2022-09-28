@@ -24,7 +24,6 @@ function Navbar() {
     let onToggleLanguageClick, openMenu, openLangMenu;
 
     useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         onToggleLanguageClick = (newLocale) => {
             const { pathname, asPath, query } = router;
             router.push({ pathname, query }, asPath, { locale: newLocale });
