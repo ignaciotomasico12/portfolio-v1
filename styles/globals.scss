@@ -1,0 +1,39 @@
+@import "variables.module.scss";
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: $font-primary;
+  font-weight: $font-weight;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#__next{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  min-height: 100vh;
+  background: $darck;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: $primary;
+    background: $darck;
+  }
+}

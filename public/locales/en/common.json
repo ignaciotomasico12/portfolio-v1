@@ -1,0 +1,23 @@
+{
+    "menu": {
+        "home": "Home",
+        "about": "About me",
+        "experience": "Experience",
+        "studies": "Studies",
+        "certificates": "Certificates",
+        "contact": "Contact",
+        "language": {
+            "es": "Spaish",
+            "en": "English"
+        }
+    },
+    "footer": {
+        "contact-title": "Contact me"
+    },
+    "env":{
+        "mode": {
+            "dev": "Develope Mode",
+            "prod": "Production Mode"
+        }
+    }
+}

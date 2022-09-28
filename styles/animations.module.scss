@@ -1,0 +1,55 @@
+@import "variables.module.scss";
+@import "mixins.module.scss";
+
+// LOGO ANIMATIONS //
+
+@keyframes hide-cursor {
+    to {-webkit-text-fill-color: transparent;}
+}
+@keyframes typing { 
+    to { width: 0; }
+}
+@keyframes caret { 
+    50% { -webkit-text-fill-color: #FFF; }
+}
+@keyframes header-move {
+    to { height: 10vh;}
+}
+@keyframes header-move-mb {
+    to { height: 8vh;}
+}
+@keyframes logo-move {
+    to { top: 50%; left: 1%; transform: translate(-1%, -50%); }
+}
+@keyframes logo-move-mb {
+    to { top: 50%; left: 40%; transform: translate(-40%, -50%); }
+}
+@keyframes small-bck {
+    to { width: 4rem; }
+}
+@keyframes text-size {
+    to { font-size: 3rem; }
+}
+@keyframes small-bck-mb {
+    to { width: 2.2rem; }
+}
+@keyframes text-size-mb {
+    to { font-size: 1.8rem; }
+}
+
+// MENU //
+@keyframes show-menu {
+    to { visibility: visible; opacity: 1; }
+}
+@keyframes menu-li {
+    to { top: 0px; opacity: 1; }
+}
+
+// AVATAR //
+
+@keyframes show-avatar {
+    to { opacity: 1; }
+}
+@keyframes border-avatar {
+    to { stroke-dashoffset: 0px; }
+}

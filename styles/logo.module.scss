@@ -1,0 +1,87 @@
+@import "animations.module.scss";
+@import "variables.module.scss";
+@import "mixins.module.scss";
+
+.logo__block{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: logo-move .8s forwards 2s;
+    @include mobile { animation: logo-move-mb .8s forwards 2s; }
+    img{
+        width: 8rem;
+        animation: small-bck .8s forwards 2s;
+        @include mobile { 
+            width: 2rem;
+            animation: small-bck-mb .8s forwards 2s; 
+        }
+    }
+    .typing {
+        position: relative;
+        font-family: $font-secondary;
+        font-size: 7rem;
+        color: $primary;
+        background: $text-gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        user-select: none;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        animation: text-size .8s forwards 2s;
+        margin: 0;
+        font-weight: 900;
+        @include mobile { 
+            font-size: 3rem; 
+            animation: text-size-mb .8s forwards 2s;
+        }
+        &::after {
+            content: "|";
+            position: absolute;
+            -webkit-text-fill-color: transparent;
+            right: 0;
+            width: 100%;
+            background: $darck;
+            font-size: 8vh;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            animation: typing .8s steps(7) forwards, caret 0.5s infinite, hide-cursor 0.3s forwards;
+            animation-delay: .4s, .4s, 2s;
+            @include mobile {
+                font-size: 4vh;
+            }
+        }
+    }
+}
+.logo__block__noanim{
+    display: flex;
+    img{
+        width: 2rem;
+        @include mobile { 
+            width: 2rem;
+        }
+    }
+    .typing {
+        position: relative;
+        font-family: $font-secondary;
+        font-size: 1.5rem;
+        color: $primary;
+        background: $text-gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        user-select: none;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        margin: 0;
+        font-weight: 900;
+        @include mobile { 
+            font-size: 1.5rem; 
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@import "animations.module.scss";
+@import "variables.module.scss";
+@import "mixins.module.scss";
+
+.home__block{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+    .avatar__block{
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        position: absolute;
+        top: 20vh;
+        opacity: 0;
+        animation: show-avatar 1s forwards;
+        animation-delay: 2.4s;
+        svg {
+          position: absolute;
+          width: 310px;
+          height: 310px;
+          transform: rotate(-90deg);
+          top: -5px;
+        }
+        svg circle {
+          width: 100%;
+          height: 100%;
+          fill: none;
+          stroke: #1e2d40;
+          stroke-width: 10;
+          stroke-linecap: round;
+        }
+        svg circle:last-of-type {
+          stroke-dasharray: 910px;
+          stroke-dashoffset: 910px;
+          stroke: $primary;
+          animation: border-avatar 1.5s forwards;
+          animation-delay: 2.5s;
+        }
+        .avatar{
+          img{
+            z-index: 5;
+            border-radius: 50%;
+            width: 98%;
+            height: 98%;
+          }
+        }
+    }
+}
