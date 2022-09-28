@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
 import { Tooltip } from '@mui/material';
-import Logo from '../components/Logo';
+import Logo from '../components/logo';
 import styles from '../styles/navbar.module.scss';
 
 function Navbar() {
