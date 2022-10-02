@@ -1,0 +1,78 @@
+@import "variables.module.scss";
+@import "mixins.module.scss";
+@import "animations.module.scss";
+
+.anim_button{
+    .button{
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        border-radius: $b_radius;
+        padding: 0px;
+        cursor: pointer;
+        color: #fff;
+        font-weight: 300;
+        font-size: 14px;
+        transition: all .3 ease;
+        width: fit-content;
+        &:hover{
+            color: $primary;
+            .icon{
+                .primary{
+                    display: none;
+                }
+                i{
+                    display: inline-block;
+                    position: relative;
+                    -moz-animation: bounce 0.5s infinite linear;
+                    -o-animation: bounce 0.5s infinite linear;
+                    -webkit-animation: bounce 0.5s infinite linear;
+                    animation: bounce 0.5s infinite linear;
+                }
+            }
+            .top{
+                i{
+                    -moz-animation: bounceTop 0.5s infinite linear;
+                    -o-animation: bounceTop 0.5s infinite linear;
+                    -webkit-animation: bounceTop 0.5s infinite linear;
+                    animation: bounceTop 0.5s infinite linear;
+                }
+            }
+            .right{
+                i{
+                    -moz-animation: bounceRight 0.5s infinite linear;
+                    -o-animation: bounceRight 0.5s infinite linear;
+                    -webkit-animation: bounceRight 0.5s infinite linear;
+                    animation: bounceRight 0.5s infinite linear;
+                }
+            }
+        }
+        span{
+            background-color: $btn_primary;
+            padding: 10px;
+            border-bottom-left-radius: $b_radius;
+            border-top-left-radius: $b_radius;
+        }
+        .icon{
+            background-color: $btn_secondary;
+            padding: 12px;
+            border-top-right-radius: $b_radius;
+            border-bottom-right-radius: $b_radius;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            @include mobile {
+                aspect-ratio: unset;
+            }
+            i{
+                transition: all .3s ease;
+            }
+            .secondary{
+                display: none;
+            }
+        }
+    }
+}

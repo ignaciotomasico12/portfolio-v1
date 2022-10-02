@@ -1,22 +1,40 @@
-import { Box, Avatar } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { Box } from '@mui/material';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import About from '../components/about';
+import Presentation from '../components/presentation';
 import styles from '../styles/home.module.scss';
+import $ from 'jquery';
 
 export default function Home() {
+  const [scrollStyle, setScrollStyle] = useState(false);
+  const { t } = useTranslation('common');
+
+  useEffect(() => {
+    $(window).scroll(function(){
+      var scrollTop = $(window).scrollTop();
+      if(scrollTop === 0){
+        setScrollStyle(false)
+      } 
+      if(scrollTop > 0){
+        setScrollStyle(true)
+      }
+    })
+  });
+
+  const scroll = scrollStyle === true ? `${styles.scroll__warpper} ${styles.scrolling}` : styles.scroll__warpper;
+
   return (
     <Box className={styles.home__block}>
-        <Box className={styles.avatar__block}>
-            <svg>
-                <circle cx="155" cy="155" r="145"></circle>
-                <circle cx="155" cy="155" r="145"></circle>
-            </svg>
-            <Avatar
-              className={styles.avatar}
-              alt="Ignacio Tomás"
-              src={'/img/avatar.png'}
-              sx={{ width: 300, height: 300 }}
-            />
-        </Box>
+      <div className={scroll} id="scroll_warpper">
+        <div className={styles.mouse}></div>
+        <p>Scroll</p>
+      </div>
+      <div className={styles.content__wrapper}>
+        <Presentation />
+        <About />
+      </div>
     </Box>
   )
 }

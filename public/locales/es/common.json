@@ -1,14 +1,40 @@
 {
     "menu": {
-        "home": "Inicio",
-        "about": "Sobre mí",
-        "experience": "Experiencia",
-        "studies": "Estudios",
-        "certificates": "Certificados",
-        "contact": "Contacto",
+        "download": "Descargar CV",
+        "github": "GitHub",
+        "linkedin": "linkedin",
+        "phone": "Teléfono",
+        "mail": "Correo Electrónico",
         "language": {
             "es": "Español",
             "en": "Inglés"
+        }
+    },
+    "main":{
+        "presentation":{
+            "title": "Desarrollador Frontend",
+            "description": "Soy un desarrollador de Frontend. Mi especialidad es React, aunque sigo formándome en diversos frameworks web como Next.js y Node.js. Tengo experiencia desarollando proyectos en HTML con Css y Sass.",
+            "contact_btn": "Contacta Conmigo"
+        }
+    },
+    "about":{
+
+    },
+    "contact":{
+        "title":"Contacta Conmigo",
+        "form":{
+            "name": "Nombre y Apellidos",
+            "mail": "Correo Electrónico",
+            "subject": "Asunto",
+            "message": "Mensaje Adicional",
+            "submit": "Enviar Consulta",
+            "success": "Mensaje enviado con éxito"
+        },
+        "description": "Mándame un mensaje con cualquier duda que tengas acerca de mi perifl o de mi experiencia. También puedes usuar el formulario para cualquier oferta o propuesta que quieras hacerme. Reviso mi email diariamente y suelo contestar de forma inmediata, por lo que no tardarás en recibir una respuesta por mi parte 😉",
+        "icons":{
+            "linkedin": "Contacta conmigo vía Linkedin",
+            "phone": "Llámame si tienes alguna duda",
+            "addres": "Mi Dirección"
         }
     },
     "footer": {

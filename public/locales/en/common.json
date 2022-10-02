@@ -1,14 +1,40 @@
 {
     "menu": {
-        "home": "Home",
-        "about": "About me",
-        "experience": "Experience",
-        "studies": "Studies",
-        "certificates": "Certificates",
-        "contact": "Contact",
+        "download": "Download CV",
+        "github": "GitHub",
+        "linkedin": "linkedin",
+        "phone": "Phone",
+        "mail": "Mail",
         "language": {
             "es": "Spaish",
             "en": "English"
+        }
+    },
+    "main":{
+        "presentation":{
+            "title": "Frontend Developer",
+            "description": "I am a Drontend developer. Actually working with React and learning news web frameworks such as Next.js and Node.js. I have experience developing projects with HTML, Css and Scss.",
+            "contact_btn": "Contact me"
+        }
+    },
+    "about":{
+
+    },
+    "contact":{
+        "title":"Contact Me",
+        "form":{
+            "name": "Name and Surname",
+            "mail": "Email",
+            "subject": "Subject",
+            "message": "Aditional Message",
+            "submit": "Send Form",
+            "success": "Message sent successfully"
+        },
+        "description": "Send me a message with any doubt you may have about my profile or experience. You can also use the form to send me any offer. I check my email daily and I usually answer immediately, so it will not take long to receive an answer from me 😉",
+        "icons":{
+            "linkedin": "Find me in Linkedin",
+            "phone": "Call me if in doubt",
+            "addres": "Address"
         }
     },
     "footer": {

@@ -1,30 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import "mixins.module.scss";
 
 // COLORS //
 
 $primary: #00FFC3;
-$primary-gradient: linear-gradient(90deg, #0ED5A8 0%, #00FFC3 100%);
 $secondary: #25AFB1;
-$secondary-gradient: linear-gradient(90deg, #25AFB1 0%, #5FD7F4 100%);
-$text-gradient: linear-gradient(90deg, #5FD7F4 0%, #00FFC3 50%, #5FD7F4 100%);
-$darck: #1E2D40;
-$darck_2: #263951;
-$footer: #0a1929;
+$btn_primary: #3C4654;
+$btn_secondary: #323D4D;
+$bg_primary: #1E2D40;
+$bg_secondary: #1B344D;
+$dark: #20252C;
+$success: #8DD773;
+$warn: #D7A143;
+$error: #D74345;
 
 // FONT STYLE //
 
 $font-primary: 'Montserrat', sans-serif;
 $font-secondary: 'Fira Code', monospace;
+$font-awesome: 'Font Awesome 6 Brands';
 $font-weight: 100;
 
 // DEVICE WIDTHS
 
 $mobile: 850px;
 
+
+// ELEMENTS //
+
+$b_radius: 6px;
+$box_shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px, rgba(0, 0, 0, 0.04) 0px 10px 10px;
+
 :export {
   primaryColor: $primary;
-  primaryColorGradient: $primary-gradient;
   secondaryColor: $secondary;
-  secondaryColorGradient: $secondary-gradient;
+  btnPrimary: $btn_primary;
+  btnSecondary: $btn_secondary;
+  bgPrimary: $bg_primary;
+  bgSecondary: $bg_secondary;
 }

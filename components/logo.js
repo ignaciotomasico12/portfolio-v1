@@ -1,12 +1,10 @@
-import { Box, Typography } from '@mui/material';
+import Link from 'next/link'
 import styles from '../styles/logo.module.scss';
 
-function Logo({hasAnimation}){
+function Logo(){
     return (
-        <Box className={hasAnimation === true ? styles.logo__block : styles.logo__block__noanim}>
-            <img src="/img/bracket_left.svg" alt="bracket_left" />
-            <Typography variant='h1' className={styles.typing}>Ignacio</Typography>
-            <img src="/img/bracket_right.svg" alt="bracket_right"/>
-        </Box>
+        <Link href="/">
+            <a className={styles.logo__block}><img src="/img/logo.svg" alt="Ignacio Tomas Logo" /></a>
+        </Link>
     );
 }; export default Logo

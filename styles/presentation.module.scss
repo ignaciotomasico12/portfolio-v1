@@ -1,0 +1,77 @@
+@import "variables.module.scss";
+@import "mixins.module.scss";
+@import "animations.module.scss";
+
+.presentation{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    gap: 15px;
+    margin-top: -8rem;
+    height: calc(100vh - 70px);
+    align-content: center;
+    align-items: center;
+    @include mobile {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin-top: -5rem;
+    }
+    .description{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-direction: column;
+        .title{
+            justify-content: flex-start;
+            align-items: flex-start;
+            align-content: flex-start;
+            flex-direction: column;
+            h4{
+                font-family: $font-secondary;
+                font-size: 5.5rem;
+                letter-spacing: -2px;
+                font-weight: 500;
+                text-shadow: 2px 0 $bg_primary, -2px 0 $bg_primary, 0 2px $bg_primary, 0 -2px $bg_primary,
+                1px 1px $bg_primary, -1px -1px $bg_primary, 1px -1px $bg_primary, -1px 1px $bg_primary;
+                &:last-child{
+                    margin-top: -30px;
+                    @include mobile {
+                        margin-top: -10px;
+                    }
+                }
+                @include mobile {
+                    font-size: 3rem;
+                }
+            }
+        }
+        .resume{
+            margin-bottom: 20px;
+            h5{
+                color: #fff;
+                margin-bottom: 5px;
+                font-size: $font-primary;
+            }
+            p{
+                color: #fff;
+                text-align: justify;
+                font-size: $font-primary;
+                @include mobile {
+                font-size: 0.85rem;
+                }
+            }
+        }
+    }
+    .image__wrapper{
+        img{
+            width: 32rem;
+            @include mobile {
+                width: 18rem;
+            }
+        }
+    }
+}

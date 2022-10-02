@@ -6,8 +6,8 @@ export default function Document() {
       <Head>
         <meta name="theme-color" content="#00FFC3" />
         <meta
-            name="Ignacio Tomás"
-            content="Web Personal de Ignacio Tomás"
+          name="Ignacio Tomás"
+          content="Portfolio de Ignacio Tomás"
         />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />

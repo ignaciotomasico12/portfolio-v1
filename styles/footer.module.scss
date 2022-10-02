@@ -1,77 +1,27 @@
-@import "animations.module.scss";
 @import "variables.module.scss";
 @import "mixins.module.scss";
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    min-height: 30vh;
-    background: $footer;
+    max-width: 1300px;
+    padding: 0 32px;
+    margin: 0 auto;
+    height: 70px;
+    background: transparent;
     padding: 30px;
     .content{
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         align-content: center;
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 5vh;
-        .logo__column{
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            width: 50%;
-            @include mobile {
-                width: 100%;
-            }
-            .contact__info{
-                padding: 30px 0px;
-                h4{
-                    color: #fff;
-                    font-size: 20px;
-                }
-                .social__icons{
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    align-items: center;
-                    align-content: center;
-                    justify-content: flex-start;
-                    gap: 10px;
-                    padding: 15px 0px;
-                    a{
-                        width: 2.5rem;
-                        aspect-ratio: 1/1;
-                        border-radius: 50%;
-                        background-color: $primary;
-                        display: flex;
-                        align-items: center;
-                        align-content: center;
-                        justify-content: center;
-                        i{
-                            font-size: 25px;
-                            color: $darck;
-                        }
-                    }
-                }
-            }
-            .copywrite{
-                position: absolute;
-                bottom: 0%;
-                color: #fff;
-            }
+        .copywrite{
+            color: #fff;
         }
-        .menu__column{
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            width: 50%;
-        }
+    
     }
     
 }
