@@ -1,4 +1,4 @@
-import { EmailService } from '../services/email.service';
+import { EmailService } from '../services/email.service.js';
 
 const eService = new EmailService();
 

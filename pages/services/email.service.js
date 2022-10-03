@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import  Email from 'email-templates';
+import Email from 'email-templates';
 
 const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
 
