@@ -28,7 +28,8 @@
             "subject": "Asunto",
             "message": "Mensaje Adicional",
             "submit": "Enviar Consulta",
-            "success": "Mensaje enviado con éxito"
+            "success": "Mensaje enviado con éxito",
+            "error": "Algo ha ido mal, revisa el formulario"
         },
         "description": "Mándame un mensaje con cualquier duda que tengas acerca de mi perifl o de mi experiencia. También puedes usuar el formulario para cualquier oferta o propuesta que quieras hacerme. Reviso mi email diariamente y suelo contestar de forma inmediata, por lo que no tardarás en recibir una respuesta por mi parte 😉",
         "icons":{

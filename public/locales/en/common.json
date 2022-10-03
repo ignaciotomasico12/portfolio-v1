@@ -28,7 +28,8 @@
             "subject": "Subject",
             "message": "Aditional Message",
             "submit": "Send Form",
-            "success": "Message sent successfully"
+            "success": "Message sent successfully",
+            "error": "Something went wrong, check the form"
         },
         "description": "Send me a message with any doubt you may have about my profile or experience. You can also use the form to send me any offer. I check my email daily and I usually answer immediately, so it will not take long to receive an answer from me 😉",
         "icons":{

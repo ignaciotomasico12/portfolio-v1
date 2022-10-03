@@ -17,35 +17,38 @@ function TransitionUp(props) {
 
 export default function About() {
     const [open, setOpen] = useState(false);
+    const [openError, setOpenError] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const [sendIcon, setSendIcon] = useState('fa-light fa-paper-plane-top');
     const vertical = 'bottom';
     const horizontal = 'center';
     let handleSubmit; 
 
     useEffect(() => {
         var form = document.getElementById('contact_form')
-        handleSubmit = (e) => {
-            e.preventDefault()
+        handleSubmit = () => {
+            setSendIcon('fa-light fa-spinner-third fa-spin')
             let data = {
-            name,
-            email,
-            subject,
-            message
+                name,
+                email,
+                subject,
+                message
             };
             fetch('/api/contact', {
                 method: 'POST',
                 headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             }).then((res) => {
                 console.log(res);
                 if (res.status === 200) {
+                    setSendIcon('fa-light fa-paper-plane-top');
                     console.log('Response succeeded!');
                     setSubmitted(true);
                     setName('');
@@ -54,6 +57,12 @@ export default function About() {
                     setMessage('');
                     form.reset();
                     handleClick();
+                }
+                if(res.status === 400) {
+                    setSendIcon('fa-light fa-paper-plane-top');
+                    console.log('Response failed!');
+                    setSubmitted(false);
+                    setOpenError(true);
                 }
             })
         }
@@ -68,6 +77,12 @@ export default function About() {
           return;
         }
         setOpen(false);
+    };
+    const handleCloseError = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpenError(false);
     };
     
     return (
@@ -92,7 +107,7 @@ export default function About() {
                     </div>
                     <Button linkTo={false}
                         label='contact.form.submit' 
-                        icon='fa-light fa-paper-plane-top' 
+                        icon={sendIcon}
                         hoverTo={false}
                         animation='left'
                         clickFn={(e)=>{handleSubmit()}}
@@ -120,16 +135,23 @@ export default function About() {
                     <li>
                         <div>
                             <i className="fa-light fa-location-dot"></i>
-                            <span>C/ Balbino Orensanz, Zaragoza, Zaragoza 50014</span>
+                            <span>C/ Balbino Orensánz, Zaragoza, Zaragoza 50014</span>
                         </div>
                     </li>
                 </ul>
             </div>
-            <Snackbar open={open} autoHideDuration={60000} onClose={handleClose} T
-                ransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}
+                TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     <i class="fa-light fa-circle-check"></i>
                     {t('contact.form.success')}
+                </Alert>
+            </Snackbar>
+            <Snackbar open={openError} autoHideDuration={6000} onClose={handleCloseError}
+                TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
+                <Alert onClose={handleCloseError} severity="error" sx={{ width: '100%' }}>
+                    <i class="fa-light fa-circle-exclamation"></i>
+                    {t('contact.form.error')}
                 </Alert>
             </Snackbar>
         </section>

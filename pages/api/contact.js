@@ -1,33 +1,28 @@
+import { EmailService } from '../services/email.service';
+
+const eService = new EmailService();
+
 export default async function (req, res) {
-    return new Promise(resolve => {
-        const password = process.env.NEXT_PUBLIC_GMAIL_PASS;
-        let nodemailer = require('nodemailer');
+    try {
+        const { email, name, subject, message} = req.body;
 
-        const transporter = nodemailer.createTransport({
-            port: 465,
-            host: "smtp.gmail.com",
-            auth: {
-                user: 'contactoitomas@gmail.com',
-                pass: password,
-            },
-            secure: true,
-        });
+        if (!email, !name, !subject) {
+            return res.status(400).send();
+        }else{
+            const locals = {
+                pEmail: email,
+                pEmailLink: `mailto:${email}`,
+                pName: name,
+                pSubject: subject || 'Consulta desde la web',
+                pMessage: message || 'No se ha especificado un mensaje',
+            };
+        
+            await eService.sendMail(email, {name: 'Contacto Portfolio', address: 'contactoitomas@gmail.com'}, 'ignaciotomasico12@gmail.com', '', 'owner', locals);
+            await eService.sendMail('ignaciotomasico12@gmail.com', {name: 'Ignacio Tomás', address: 'contactoitomas@gmail.com'}, email, '', 'client', locals);
 
-        const mailData = {
-            from: 'contactoitomas@gmail.com',
-            to: 'ignaciotomasico12@gmail.com',
-            subject: `Mensaje de ${req.body.name} - ${req.body.subject}`,
-            text: req.body.message,
-            html: `<div>${req.body.message}</div>`
+            return res.status(200).send({ message: 'Email enviado con éxito' });
         }
-
-        transporter.sendMail(mailData, function (err, info) {
-            if(err)
-            console.log(err)
-            else
-            console.log(info)
-        })
-        res.status(200).end();
-        return resolve()
-    })
+    } catch (err) {
+        console.log(err);
+    }
 }
