@@ -6,4 +6,13 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback.fs = false;
+      config.resolve.fallback.velocityjs = false;
+      config.resolve.fallback.atpl = false;
+      config.resolve.fallback.liquor = false;
+    }
+    return config;
+  },
 };
