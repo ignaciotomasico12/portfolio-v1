@@ -32,12 +32,21 @@
                     animation: bounce 0.5s infinite linear;
                 }
             }
+            .no__spin{
+                i{
+                    animation-name: 'fa-spin' !important;
+                    animation-duration: 1.5s !important;
+                }
+            }
             .top{
                 i{
                     -moz-animation: bounceTop 0.5s infinite linear;
                     -o-animation: bounceTop 0.5s infinite linear;
                     -webkit-animation: bounceTop 0.5s infinite linear;
                     animation: bounceTop 0.5s infinite linear;
+                }
+                .no__spin{
+                    animation-name: fa-spin;
                 }
             }
             .right{
@@ -46,6 +55,9 @@
                     -o-animation: bounceRight 0.5s infinite linear;
                     -webkit-animation: bounceRight 0.5s infinite linear;
                     animation: bounceRight 0.5s infinite linear;
+                }
+                .no__spin{
+                    animation-name: fa-spin;
                 }
             }
         }

@@ -24,6 +24,7 @@ export default function About() {
     const [message, setMessage] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [sendIcon, setSendIcon] = useState('fa-light fa-paper-plane-top');
+    const [spin, setSpin] = useState(false);
     const vertical = 'bottom';
     const horizontal = 'center';
     let handleSubmit; 
@@ -31,7 +32,8 @@ export default function About() {
     useEffect(() => {
         var form = document.getElementById('contact_form')
         handleSubmit = () => {
-            setSendIcon('fa-light fa-spinner-third fa-spin')
+            setSendIcon('fa-light fa-spinner-third fa-spin');
+            setSpin(true);
             let data = {
                 name,
                 email,
@@ -49,6 +51,7 @@ export default function About() {
                 console.log(res);
                 if (res.status === 200) {
                     setSendIcon('fa-light fa-paper-plane-top');
+                    setSpin(false);
                     console.log('Response succeeded!');
                     setSubmitted(true);
                     setName('');
@@ -60,6 +63,7 @@ export default function About() {
                 }
                 if(res.status === 400) {
                     setSendIcon('fa-light fa-paper-plane-top');
+                    setSpin(false);
                     console.log('Response failed!');
                     setSubmitted(false);
                     setOpenError(true);
@@ -111,6 +115,7 @@ export default function About() {
                         hoverTo={false}
                         animation='left'
                         clickFn={(e)=>{handleSubmit()}}
+                        spin={spin}
                     />
                 </form>
             </div>
@@ -143,14 +148,14 @@ export default function About() {
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}
                 TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    <i class="fa-light fa-circle-check"></i>
+                    <i className="fa-light fa-circle-check"></i>
                     {t('contact.form.success')}
                 </Alert>
             </Snackbar>
             <Snackbar open={openError} autoHideDuration={6000} onClose={handleCloseError}
                 TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
                 <Alert onClose={handleCloseError} severity="error" sx={{ width: '100%' }}>
-                    <i class="fa-light fa-circle-exclamation"></i>
+                    <i className="fa-light fa-circle-exclamation"></i>
                     {t('contact.form.error')}
                 </Alert>
             </Snackbar>
