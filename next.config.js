@@ -12,6 +12,11 @@ module.exports = {
       config.resolve.fallback.velocityjs = false;
       config.resolve.fallback.atpl = false;
       config.resolve.fallback.liquor = false;
+      config.resolve.fallback.dustjs_linkedin = false;
+      config.resolve.fallback.twig = false;
+      config.resolve.fallback.ejs = false;
+      config.resolve.fallback.eco = false;
+      config.resolve.fallback.jazz = false;
     }
     return config;
   },
