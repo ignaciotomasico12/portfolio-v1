@@ -19,35 +19,25 @@ export default async function (req, res) {
     });
 
     await new Promise((resolve, reject) => {
-        transporter.verify(function (error, success) {
-            if (error) {
-                console.log(error);
-                reject(error);
-            } else {
-                console.log("Server is ready to take our messages");
-                resolve(success);
-            }
-        });
-    });
 
-    async function sendMail(replyTo, from, to, bcc, template, locals = {}) { 
-        const emailMsg = new Email({
-            transport: transporter,
-            send: true,
-            preview: false,
-        });
-        const message = {from, to, bcc, replyTo}; 
+        async function sendMail(replyTo, from, to, bcc, template, locals = {}) { 
+            const emailMsg = new Email({
+                transport: transporter,
+                send: true,
+                preview: false,
+            });
+            const message = {from, to, bcc, replyTo}; 
+    
+            await emailMsg.send({
+                template,
+                message,
+                locals
+            });
+        }
 
-        await emailMsg.send({
-            template,
-            message,
-            locals
-        });
-    }
-
-    await new Promise((resolve, reject) => {
-        if (!email || !name || !subject) {
-            reject(res.status(400).send());
+        if (!email || !name) {
+            reject(res)
+            return res.status(400).send();
         }else{
             const locals = {
                 pEmail: email,
@@ -59,8 +49,8 @@ export default async function (req, res) {
         
             sendMail(email, {name: 'Contacto Portfolio', address: 'contactoitomas@gmail.com'}, 'ignaciotomasico12@gmail.com', '', 'owner', locals);
             sendMail('ignaciotomasico12@gmail.com', {name: 'Ignacio Tomás', address: 'contactoitomas@gmail.com'}, email, '', 'client', locals);
-    
-            resolve(res.status(200).send({ message: 'Email enviado con éxito' }));
+            resolve(res)
+            return res.status(200).send({ message: 'Email enviado con éxito' });
         }
 
     });
