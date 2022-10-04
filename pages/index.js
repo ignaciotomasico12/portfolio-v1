@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import About from '../components/about.js';
-import Presentation from '../components/presentation.js';
+import About from '../components/about';
+import Presentation from '../components/presentation';
 import styles from '../styles/home.module.scss';
 import $ from 'jquery';
 

@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
-import Button from '../components/button.js';
+import Button from '../components/button';
 import styles from '../styles/presentation.module.scss';
 
 export default function Presentation() {

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { Tooltip } from '@mui/material';
-import Button from '../components/button.js';
-import Logo from '../components/logo.js';
+import Button from '../components/button.';
+import Logo from '../components/logo';
 import styles from '../styles/navbar.module.scss';
 
 function Navbar() {
