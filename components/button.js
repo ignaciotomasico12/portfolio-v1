@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link'
+import Link from 'next/link';
 import styles from '../styles/button.module.scss';
 
 export default function Button({linkTo, label, icon, hoverTo, animation, clickFn, target}) {

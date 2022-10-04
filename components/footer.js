@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import { useTranslation } from "next-i18next";
 import styles from '../styles/footer.module.scss';
 

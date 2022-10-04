@@ -1,6 +1,6 @@
-import Layout from '../components/layout'
+import Layout from '../components/layout.js';
 import { appWithTranslation } from 'next-i18next';
-import Head from 'next/head'
+import Head from 'next/head';
 import '../styles/globals.scss';
 import '../styles/fontawesome/all.css';
 
