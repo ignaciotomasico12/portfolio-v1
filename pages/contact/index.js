@@ -41,8 +41,7 @@ export default function About() {
                 email,
                 subject,
                 message,
-                client: `pages/emails/client-${router.locale}.pug`,
-                owner: 'pages/emails/owner.pug'
+                lang: router.locale,
             };
             fetch('/api/contact', {
                 method: 'POST',

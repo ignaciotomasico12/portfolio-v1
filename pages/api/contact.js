@@ -1,9 +1,11 @@
 export default async (req, res) => { 
     let nodemailer = require('nodemailer');
-    let pug = require('pug');
+    let hbs = require('nodemailer-express-handlebars');
+    let path = require('path');
+    let fs = require('fs');
     const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
 
-    const { email, name, subject, message, client, owner} = req.body;
+    const { email, name, subject, message, lang} = req.body;
     const locals = {
         pEmail: email,
         pName: name,
@@ -21,6 +23,17 @@ export default async (req, res) => {
         },
         secure: true,
     });
+
+    transporter.use('compile', hbs({
+        viewEngine: {
+            extname: '.hbs',
+            partialsDir: './pages/views/',
+            layoutsDir: './pages/views/',
+            defaultLayout: ''
+        },
+        viewPath: './pages/views/',
+        extName: '.hbs',
+    }));
 
     
     await new Promise((resolve, reject) => {
@@ -44,7 +57,8 @@ export default async (req, res) => {
         replyTo: email,
         subject: subject,
         text: message,
-        html: pug.renderFile(owner, locals),
+        template: 'owner',
+        context: locals,
     };
     const clientMail = {
         from: {
@@ -55,7 +69,8 @@ export default async (req, res) => {
         replyTo: "ignaciotomasico12@gmail.com",
         subject: subject,
         text: message,
-        html: pug.renderFile(client, locals),
+        template: `client-${lang}`,
+        context: locals,
     };
 
     await new Promise((resolve, reject) => {
