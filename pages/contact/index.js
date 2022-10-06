@@ -65,7 +65,7 @@ export default function About() {
                     form.reset();
                     handleClick();
                 }
-                if(res.status === 400) {
+                if(res.status === 400 || res.status === 500) {
                     setSendIcon('fa-light fa-paper-plane-top');
                     setSpin(false);
                     console.log('Response failed!');

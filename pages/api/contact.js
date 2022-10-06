@@ -1,9 +1,10 @@
 
 let nodemailer = require('nodemailer');
 let pug = require('pug');
+
 const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
 
-export default async function (req, res) { 
+export default async (req, res) => { 
     const { email, name, subject, message, client, owner} = req.body;
     const locals = {
         pEmail: email,
@@ -20,6 +21,19 @@ export default async function (req, res) {
             pass: MAIL_PASSWORD,
         },
         secure: true,
+    });
+
+    
+    await new Promise((resolve, reject) => {
+        transporter.verify(function (error, success) {
+            if (error) {
+                console.log(error);
+                reject(error);
+            } else {
+                console.log("Server is ready to take our messages");
+                resolve(success);
+            }
+        });
     });
 
     const ownerMail = {
@@ -47,10 +61,10 @@ export default async function (req, res) {
 
     if(email){
         await new Promise((resolve, reject) => {
-            transporter.sendMail(ownerMail, function(err, info){
+            transporter.sendMail(ownerMail, (err, info) => {
                 err ? reject(err) : resolve(info);
             });
-            transporter.sendMail(clientMail, function(err, info){
+            transporter.sendMail(clientMail, (err, info) => {
                 err ? reject(err) : resolve(info);
             });
         });
@@ -59,6 +73,4 @@ export default async function (req, res) {
     } else {
         res.status(400).json({ status: "Missing Fields" });
     }
-
-    
 };
