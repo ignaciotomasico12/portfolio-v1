@@ -6,7 +6,7 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-  experimental: { 
-    nftTracing: true 
+  node: {
+    __dirname: false
   }
 };

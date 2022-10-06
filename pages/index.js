@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import Head from 'next/head';
 import About from '../components/about';
 import Presentation from '../components/presentation';
 import styles from '../styles/home.module.scss';
@@ -26,16 +27,21 @@ export default function Home() {
   const scroll = scrollStyle === true ? `${styles.scroll__warpper} ${styles.scrolling}` : styles.scroll__warpper;
 
   return (
-    <Box className={styles.home__block}>
-      <div className={scroll} id="scroll_warpper">
-        <div className={styles.mouse}></div>
-        <p>Scroll</p>
-      </div>
-      <div className={styles.content__wrapper}>
-        <Presentation />
-        <About />
-      </div>
-    </Box>
+    <>
+      <Head>
+        <title>Portfolio | Ignacio Tomás</title>
+      </Head>
+      <Box className={styles.home__block}>
+        <div className={scroll} id="scroll_warpper">
+          <div className={styles.mouse}></div>
+          <p>Scroll</p>
+        </div>
+        <div className={styles.content__wrapper}>
+          <Presentation />
+          <About />
+        </div>
+      </Box>
+    </>
   )
 }
 

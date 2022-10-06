@@ -2,6 +2,7 @@ import { useEffect, useState, forwardRef } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Slide from '@mui/material/Slide';
@@ -93,76 +94,81 @@ export default function About() {
     };
     
     return (
-        <section className={styles.contact__section}>
-            <div className={styles.form__wrapper}>
-                <form className={styles.contact__form} id="contact_form"> 
-                    <div className={styles.textInput}>
-                        <input placeholder="" type='text' name='name' className={styles.inputField} onChange={(e)=>{setName(e.target.value)}}/>
-                        <label htmlFor='name'>{t('contact.form.name')}</label>
-                    </div>  
-                    <div className={styles.textInput}>
-                        <input placeholder="" type='email' name='email' className={styles.inputField} onChange={(e)=>{setEmail(e.target.value)}}/>
-                        <label htmlFor='email'>{t('contact.form.mail')}</label>
-                    </div>
-                    <div className={styles.textInput}>
-                        <input placeholder="" type='text' name='subject' className={styles.inputField} onChange={(e)=>{setSubject(e.target.value)}}/>
-                        <label htmlFor='subject'>{t('contact.form.subject')}</label>
-                    </div>
-                    <div className={styles.textareaInput} >
-                        <textarea placeholder="" name='message' className={styles.inputField} onChange={(e)=>{setMessage(e.target.value)}} maxLength="250"/>
-                        <label htmlFor='message'>{t('contact.form.message')}</label>
-                    </div>
-                    <Button linkTo={false}
-                        label='contact.form.submit' 
-                        icon={sendIcon}
-                        hoverTo={false}
-                        animation='left'
-                        clickFn={(e)=>{handleSubmit()}}
-                        spin={spin}
-                    />
-                </form>
-            </div>
-            <div className={styles.contact__text}>
-                <h1>{t('contact.title')}</h1>
-                <span>
-                    <p>{t('contact.description')}</p>
-                </span>
-                <ul className={styles.contact__list}>
-                    <li>
-                        <a href="https://www.linkedin.com/in/ignacio-tom%C3%A1s-flor%C3%ADa-b0232b1b1/" target="_blank" rel='noreferrer'>
-                            <i className="fa-brands fa-linkedin"></i>
-                            <span>Linkedin</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tel:628085095" rel='noreferrer'>
-                            <i className="fa-light fa-phone"></i>
-                            <span>+34 628 085 095</span>
-                        </a>
-                    </li>
-                    <li>
-                        <div>
-                            <i className="fa-light fa-location-dot"></i>
-                            <span>C/ Balbino Orensánz, Zaragoza, Zaragoza 50014</span>
+        <>
+            <Head>
+                <title>Contacto | Ignacio Tomás</title>
+            </Head>
+            <section className={styles.contact__section}>
+                <div className={styles.form__wrapper}>
+                    <form className={styles.contact__form} id="contact_form"> 
+                        <div className={styles.textInput}>
+                            <input placeholder="" type='text' name='name' className={styles.inputField} onChange={(e)=>{setName(e.target.value)}}/>
+                            <label htmlFor='name'>{t('contact.form.name')}</label>
+                        </div>  
+                        <div className={styles.textInput}>
+                            <input placeholder="" type='email' name='email' className={styles.inputField} onChange={(e)=>{setEmail(e.target.value)}}/>
+                            <label htmlFor='email'>{t('contact.form.mail')}</label>
                         </div>
-                    </li>
-                </ul>
-            </div>
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}
-                TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
-                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    <i className="fa-light fa-circle-check"></i>
-                    {t('contact.form.success')}
-                </Alert>
-            </Snackbar>
-            <Snackbar open={openError} autoHideDuration={6000} onClose={handleCloseError}
-                TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
-                <Alert onClose={handleCloseError} severity="error" sx={{ width: '100%' }}>
-                    <i className="fa-light fa-circle-exclamation"></i>
-                    {t('contact.form.error')}
-                </Alert>
-            </Snackbar>
-        </section>
+                        <div className={styles.textInput}>
+                            <input placeholder="" type='text' name='subject' className={styles.inputField} onChange={(e)=>{setSubject(e.target.value)}}/>
+                            <label htmlFor='subject'>{t('contact.form.subject')}</label>
+                        </div>
+                        <div className={styles.textareaInput} >
+                            <textarea placeholder="" name='message' className={styles.inputField} onChange={(e)=>{setMessage(e.target.value)}} maxLength="250"/>
+                            <label htmlFor='message'>{t('contact.form.message')}</label>
+                        </div>
+                        <Button linkTo={false}
+                            label='contact.form.submit' 
+                            icon={sendIcon}
+                            hoverTo={false}
+                            animation='left'
+                            clickFn={(e)=>{handleSubmit()}}
+                            spin={spin}
+                        />
+                    </form>
+                </div>
+                <div className={styles.contact__text}>
+                    <h1>{t('contact.title')}</h1>
+                    <span>
+                        <p>{t('contact.description')}</p>
+                    </span>
+                    <ul className={styles.contact__list}>
+                        <li>
+                            <a href="https://www.linkedin.com/in/ignacio-tom%C3%A1s-flor%C3%ADa-b0232b1b1/" target="_blank" rel='noreferrer'>
+                                <i className="fa-brands fa-linkedin"></i>
+                                <span>Linkedin</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:628085095" rel='noreferrer'>
+                                <i className="fa-light fa-phone"></i>
+                                <span>+34 628 085 095</span>
+                            </a>
+                        </li>
+                        <li>
+                            <div>
+                                <i className="fa-light fa-location-dot"></i>
+                                <span>C/ Balbino Orensánz, Zaragoza, Zaragoza 50014</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}
+                    TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
+                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                        <i className="fa-light fa-circle-check"></i>
+                        {t('contact.form.success')}
+                    </Alert>
+                </Snackbar>
+                <Snackbar open={openError} autoHideDuration={6000} onClose={handleCloseError}
+                    TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
+                    <Alert onClose={handleCloseError} severity="error" sx={{ width: '100%' }}>
+                        <i className="fa-light fa-circle-exclamation"></i>
+                        {t('contact.form.error')}
+                    </Alert>
+                </Snackbar>
+            </section>
+        </>
     )
 };
 
