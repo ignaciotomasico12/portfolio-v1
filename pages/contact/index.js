@@ -165,7 +165,7 @@ export default function About() {
             </Snackbar>
         </section>
     )
-}
+};
 
 export const getStaticProps = async ({ locale }) => ({
     props: {

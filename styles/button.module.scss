@@ -17,6 +17,7 @@
         font-size: 14px;
         transition: all .3 ease;
         width: fit-content;
+        height: 40px;
         &:hover{
             color: $primary;
             .icon{
@@ -66,16 +67,16 @@
             padding: 10px;
             border-bottom-left-radius: $b_radius;
             border-top-left-radius: $b_radius;
+            height: 100%;
+            display: block;
         }
         .icon{
             background-color: $btn_secondary;
             padding: 12px;
             border-top-right-radius: $b_radius;
             border-bottom-right-radius: $b_radius;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
+            height: 100%;
+            display: block;
             @include mobile {
                 aspect-ratio: unset;
             }
