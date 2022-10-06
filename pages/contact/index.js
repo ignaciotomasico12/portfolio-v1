@@ -17,6 +17,10 @@ function TransitionUp(props) {
 }
 
 export default function About() {
+
+    const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
+    console.log(MAIL_PASSWORD);
+
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
     const [name, setName] = useState('');
