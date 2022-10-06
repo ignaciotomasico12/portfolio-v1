@@ -38,6 +38,9 @@
             "addres": "Address"
         }
     },
+    "mail":{
+        "subject": "Message received"
+    },
     "footer": {
         "contact-title": "Contact me"
     },

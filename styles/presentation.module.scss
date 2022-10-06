@@ -11,14 +11,11 @@
     align-items: center;
     align-content: center;
     gap: 15px;
-    margin-top: -8rem;
-    height: calc(100vh - 70px);
     align-content: center;
     align-items: center;
     @include mobile {
         flex-direction: column-reverse;
         justify-content: center;
-        margin-top: -5rem;
     }
     .description{
         display: flex;

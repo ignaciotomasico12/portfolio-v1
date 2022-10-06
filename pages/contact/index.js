@@ -1,4 +1,5 @@
 import { useEffect, useState, forwardRef } from 'react';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Snackbar from '@mui/material/Snackbar';
@@ -25,6 +26,7 @@ export default function About() {
     const [submitted, setSubmitted] = useState(false);
     const [sendIcon, setSendIcon] = useState('fa-light fa-paper-plane-top');
     const [spin, setSpin] = useState(false);
+    const router = useRouter()
     const vertical = 'bottom';
     const horizontal = 'center';
     let handleSubmit; 
@@ -38,7 +40,9 @@ export default function About() {
                 name,
                 email,
                 subject,
-                message
+                message,
+                client: `pages/emails/client-${router.locale}.pug`,
+                owner: 'pages/emails/owner.pug'
             };
             fetch('/api/contact', {
                 method: 'POST',

@@ -38,6 +38,9 @@
             "addres": "Mi Dirección"
         }
     },
+    "mail":{
+        "subject": "Mensaje recibido"
+    },
     "footer": {
         "contact-title": "Contacta conmigo"
     },

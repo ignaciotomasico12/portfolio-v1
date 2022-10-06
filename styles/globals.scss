@@ -25,7 +25,7 @@ body::before {
   height: 300px;
   position: absolute;
   left: -50px;
-  top: 100px;
+  top: 170px;
   z-index: -1;
   @include mobile {
     display: none;

@@ -1,12 +1,16 @@
 
 let nodemailer = require('nodemailer');
-let Email = require('email-templates');
-
+let pug = require('pug');
 const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
 
-export default async function (req, res) {
-
-    const { email, name, subject, message} = req.body;
+export default async function (req, res) { 
+    const { email, name, subject, message, client, owner} = req.body;
+    const locals = {
+        pEmail: email,
+        pName: name,
+        pSubject: subject,
+        pMessage: message,
+    }
 
     const transporter = nodemailer.createTransport({
         port: 465,
@@ -18,40 +22,43 @@ export default async function (req, res) {
         secure: true,
     });
 
-    await new Promise((resolve, reject) => {
+    const ownerMail = {
+        from: {
+            name: `${name}`,
+            address: "contactoitomas@gmail.com",
+        },
+        to: "ignaciotomasico12@gmail.com",
+        replyTo: email,
+        subject: subject,
+        text: message,
+        html: pug.renderFile(owner, locals),
+    };
+    const clientMail = {
+        from: {
+            name: 'Ignacio Tomás',
+            address: "contactoitomas@gmail.com",
+        },
+        to: email,
+        replyTo: "ignaciotomasico12@gmail.com",
+        subject: subject,
+        text: message,
+        html: pug.renderFile(client, locals),
+    };
 
-        async function sendMail(replyTo, from, to, bcc, template, locals = {}) { 
-            const emailMsg = new Email({
-                transport: transporter,
-                send: true,
-                preview: false,
+    if(email){
+        await new Promise((resolve, reject) => {
+            transporter.sendMail(ownerMail, function(err, info){
+                err ? reject(err) : resolve(info);
             });
-            const message = {from, to, bcc, replyTo}; 
-    
-            await emailMsg.send({
-                template,
-                message,
-                locals
+            transporter.sendMail(clientMail, function(err, info){
+                err ? reject(err) : resolve(info);
             });
-        }
-
-        if (!email || !name) {
-            reject(res)
-            return res.status(400).send();
-        }else{
-            const locals = {
-                pEmail: email,
-                pEmailLink: `mailto:${email}`,
-                pName: name,
-                pSubject: subject || 'Consulta desde la web',
-                pMessage: message || 'No se ha especificado un mensaje',
-            };
+        });
         
-            sendMail(email, {name: 'Contacto Portfolio', address: 'contactoitomas@gmail.com'}, 'ignaciotomasico12@gmail.com', '', 'owner', locals);
-            sendMail('ignaciotomasico12@gmail.com', {name: 'Ignacio Tomás', address: 'contactoitomas@gmail.com'}, email, '', 'client', locals);
-            resolve(res)
-            return res.status(200).send({ message: 'Email enviado con éxito' });
-        }
+        res.status(200).json({ status: "Message Sent" });
+    } else {
+        res.status(400).json({ status: "Missing Fields" });
+    }
 
-    });
-}
+    
+};

@@ -9,15 +9,14 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     gap: 30px;
-    margin-top: -8rem;
-    height: calc(100vh - 70px);
     align-content: center;
     align-items: center;
+    height: calc(100vh - 160px);
     @include mobile {
         flex-direction: column-reverse;
         justify-content: center;
+        height: unset;
         gap: 0;
-        margin-top: -2rem;
     }
     .form__wrapper{
         background-color: $dark;
@@ -161,6 +160,7 @@
         color: #fff;
         margin-top: -5rem;
         @include mobile {
+            margin-top: 0;
             width: 100%;
         }
         h1{
