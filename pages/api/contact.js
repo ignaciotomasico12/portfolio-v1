@@ -3,7 +3,6 @@ let nodemailer = require('nodemailer');
 let pug = require('pug');
 
 const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
-console.log(MAIL_PASSWORD);
 
 export default async (req, res) => { 
     const { email, name, subject, message, client, owner} = req.body;
@@ -28,7 +27,7 @@ export default async (req, res) => {
     await new Promise((resolve, reject) => {
         transporter.verify(function (error, success) {
             if (error) {
-                console.log(error);
+                console.log("Server Error: ", error);
                 reject(error);
             } else {
                 console.log("Server is ready to take our messages");
