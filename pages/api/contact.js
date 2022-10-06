@@ -1,8 +1,7 @@
 export default async (req, res) => { 
     let nodemailer = require('nodemailer');
     let hbs = require('nodemailer-express-handlebars');
-    let path = require('path');
-    let fs = require('fs');
+    
     const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
 
     const { email, name, subject, message, lang} = req.body;
@@ -27,8 +26,8 @@ export default async (req, res) => {
     transporter.use('compile', hbs({
         viewEngine: {
             extname: '.hbs',
-            partialsDir: './pages/views/',
-            layoutsDir: './pages/views/',
+            partialsDir: process.cwd() + '/pages/views/',
+            layoutsDir: process.cwd() + '/pages/views/',
             defaultLayout: ''
         },
         viewPath: './pages/views/',
