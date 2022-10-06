@@ -36,6 +36,7 @@ export default function About() {
 
     useEffect(() => {
         var form = document.getElementById('contact_form')
+    
         handleSubmit = () => {
             setSendIcon('fa-light fa-spinner-third fa-spin');
             setSpin(true);
@@ -47,7 +48,7 @@ export default function About() {
                 message,
                 lang: router.locale,
             };
-            if(name !== '' && email !== '' && company !== '') {
+            if(name !== '' && email !== '' && company !== '' && subject !== '') {
                 fetch('/api/contact', {
                     method: 'POST',
                     headers: {
@@ -60,7 +61,6 @@ export default function About() {
                     if (res.status === 200) {
                         setSendIcon('fa-light fa-paper-plane-top');
                         setSpin(false);
-                        console.log('Response succeeded!');
                         setSubmitted(true);
                         setName('');
                         setCompany('');
@@ -73,7 +73,6 @@ export default function About() {
                     if(res.status === 400 || res.status === 500) {
                         setSendIcon('fa-light fa-paper-plane-top');
                         setSpin(false);
-                        console.log('Response failed!');
                         setSubmitted(false);
                         setOpenError(true);
                     }
@@ -109,6 +108,18 @@ export default function About() {
         }
         setOpenErrorForm(false);
     };
+
+    const itsEmpty = (target) => {
+        if(target.value === '') {
+            target.classList.add(styles.empty);
+        }
+    }
+
+    const checkEmpty = (target) => {
+        if(target.value !== '') {
+            target.classList.remove(styles.empty);
+        }
+    }
     
     return (
         <>
@@ -117,27 +128,50 @@ export default function About() {
             </Head>
             <section className={styles.contact__section}>
                 <div className={styles.form__wrapper}>
+                    <div className={styles.circle_header}>
+                        <div className={styles.circle}>
+                            <img src="/img/email.png" alt="contact envelope" className={styles.envelope}/>
+                        </div>
+                    </div>
                     <form className={styles.contact__form} id="contact_form"> 
                         <div className={styles.double__input}> 
                             <div className={styles.textInput}>
-                                <input placeholder="" type='text' name='name' className={styles.inputField} onChange={(e)=>{setName(e.target.value)}}/>
-                                <label htmlFor='name'>{t('contact.form.name')}</label>
+                                <input placeholder={t('contact.form.name.placehld')} type='text' name='name' className={styles.inputField} 
+                                    onChange={(e)=>{setName(e.target.value), checkEmpty(e.target)}} onClick={(e) => itsEmpty(e.target)} required
+                                />
+                                <label htmlFor='name'>{t('contact.form.name.title')}</label>
+                                <span>*</span>
+                                <div>{t('contact.form.required')}</div>
                             </div>
                             <div className={styles.textInput}>
-                                <input placeholder="" type='text' name='company' className={styles.inputField} onChange={(e)=>{setCompany(e.target.value)}}/>
-                                <label htmlFor='company'>{t('contact.form.company')}</label>
+                                <input placeholder={t('contact.form.company.placehld')} type='text' name='company' className={styles.inputField} 
+                                    onChange={(e)=>{setCompany(e.target.value), checkEmpty(e.target)}} onClick={(e) => itsEmpty(e.target)} required
+                                />
+                                <label htmlFor='company'>{t('contact.form.company.title')}</label>
+                                <span>*</span>
+                                <div>{t('contact.form.required')}</div>
                             </div>
                         </div>
                         <div className={styles.textInput}>
-                            <input placeholder="" type='email' name='email' className={styles.inputField} onChange={(e)=>{setEmail(e.target.value)}}/>
-                            <label htmlFor='email'>{t('contact.form.mail')}</label>
+                            <input placeholder={t('contact.form.mail.placehld')} type='email' name='email' className={styles.inputField} 
+                                onChange={(e)=>{setEmail(e.target.value), checkEmpty(e.target)}} onClick={(e) => itsEmpty(e.target)} required
+                            />
+                            <label htmlFor='email'>{t('contact.form.mail.title')}</label>
+                            <span>*</span>
+                            <div>{t('contact.form.required')}</div>
                         </div>
                         <div className={styles.textInput}>
-                            <input placeholder="" type='text' name='subject' className={styles.inputField} onChange={(e)=>{setSubject(e.target.value)}}/>
+                            <input placeholder="" type='text' name='subject' className={styles.inputField} 
+                                onChange={(e)=>{setSubject(e.target.value), checkEmpty(e.target)}} onClick={(e) => itsEmpty(e.target)} required
+                            />
                             <label htmlFor='subject'>{t('contact.form.subject')}</label>
+                            <span>*</span>
+                            <div>{t('contact.form.required')}</div>
                         </div>
                         <div className={styles.textareaInput} >
-                            <textarea placeholder="" name='message' className={styles.inputField} onChange={(e)=>{setMessage(e.target.value)}} maxLength="250"/>
+                            <textarea placeholder="" name='message' className={styles.inputField} 
+                                onChange={(e)=>{setMessage(e.target.value)}} maxLength="250"
+                            />
                             <label htmlFor='message'>{t('contact.form.message')}</label>
                         </div>
                         <Button linkTo={false}

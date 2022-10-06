@@ -28,12 +28,22 @@
     "contact":{
         "title":"Contact Me",
         "form":{
-            "name": "Name and Surname",
-            "company": "Company",
-            "mail": "Email",
+            "name": {
+                "title": "Name and Surname",
+                "placehld": "E.g. John Doe"
+            },
+            "company": {
+                "title": "Company",
+                "placehld": "E.g. My Company"
+            },
+            "mail": {
+                "title": "Email",
+                "placehld": "E.g. example@gmail.com"
+            },
             "subject": "Subject",
             "message": "Aditional Message",
             "submit": "Send Form",
+            "required": "Field Required",
             "success": "Message sent successfully",
             "error": {
                 "serevr": "Something went wrong, try again later",

@@ -28,12 +28,22 @@
     "contact":{
         "title":"Contacta Conmigo",
         "form":{
-            "name": "Nombre y Apellido",
-            "company": "Empresa",
-            "mail": "Correo Electrónico",
+            "name": {
+                "title": "Nombre y Apellid",
+                "placehld": "Ej. John Doe"
+            },
+            "company": {
+                "title": "Empresa",
+                "placehld": "Ej. Mi Empresa"
+            },
+            "mail": {
+                "title": "Correo Electrónico",
+                "placehld": "Ej. ejemplo@gmail.com"
+            },
             "subject": "Asunto",
             "message": "Mensaje Adicional",
             "submit": "Enviar Consulta",
+            "required": "Campo Requerido",
             "success": "Mensaje enviado con éxito",
             "error": {
                 "server": "Algo ha ido mal, inténtalo más tarde",
