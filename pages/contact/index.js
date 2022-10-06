@@ -20,6 +20,7 @@ function TransitionUp(props) {
 export default function About() {
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
+    const [openErrorForm, setOpenErrorForm] = useState(false);
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
     const [email, setEmail] = useState('');
@@ -46,36 +47,43 @@ export default function About() {
                 message,
                 lang: router.locale,
             };
-            fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            }).then((res) => {
-                console.log(res);
-                if (res.status === 200) {
-                    setSendIcon('fa-light fa-paper-plane-top');
-                    setSpin(false);
-                    console.log('Response succeeded!');
-                    setSubmitted(true);
-                    setName('');
-                    setCompany('');
-                    setEmail('');
-                    setSubject('');
-                    setMessage('');
-                    form.reset();
-                    handleClick();
-                }
-                if(res.status === 400 || res.status === 500) {
-                    setSendIcon('fa-light fa-paper-plane-top');
-                    setSpin(false);
-                    console.log('Response failed!');
-                    setSubmitted(false);
-                    setOpenError(true);
-                }
-            })
+            if(name !== '' && email !== '' && company !== '') {
+                fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }).then((res) => {
+                    console.log(res);
+                    if (res.status === 200) {
+                        setSendIcon('fa-light fa-paper-plane-top');
+                        setSpin(false);
+                        console.log('Response succeeded!');
+                        setSubmitted(true);
+                        setName('');
+                        setCompany('');
+                        setEmail('');
+                        setSubject('');
+                        setMessage('');
+                        form.reset();
+                        handleClick();
+                    }
+                    if(res.status === 400 || res.status === 500) {
+                        setSendIcon('fa-light fa-paper-plane-top');
+                        setSpin(false);
+                        console.log('Response failed!');
+                        setSubmitted(false);
+                        setOpenError(true);
+                    }
+                })
+            } else {
+                setSendIcon('fa-light fa-paper-plane-top');
+                setSpin(false);
+                setSubmitted(false);
+                setOpenErrorForm(true);
+            }
         }
     });
     const { t } = useTranslation('common');
@@ -94,6 +102,12 @@ export default function About() {
           return;
         }
         setOpenError(false);
+    };
+    const handleCloseErrorForm = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpenErrorForm(false);
     };
     
     return (
@@ -173,7 +187,14 @@ export default function About() {
                     TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
                     <Alert onClose={handleCloseError} severity="error" sx={{ width: '100%' }}>
                         <i className="fa-light fa-circle-exclamation"></i>
-                        {t('contact.form.error')}
+                        {t('contact.form.error-server')}
+                    </Alert>
+                </Snackbar>
+                <Snackbar open={openErrorForm} autoHideDuration={6000} onClose={handleCloseErrorForm}
+                    TransitionComponent={TransitionUp} anchorOrigin={{ vertical, horizontal }} className={styles.alert}>
+                    <Alert onClose={handleCloseErrorForm} severity="error" sx={{ width: '100%' }}>
+                        <i className="fa-light fa-circle-exclamation"></i>
+                        {t('contact.form.error.empty')}
                     </Alert>
                 </Snackbar>
             </section>
