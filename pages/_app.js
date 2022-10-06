@@ -24,10 +24,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Script
+        id="gtm-script"
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=G-49EE3B2GDW`}
       />
       <Script
+        id="gtm-script-html"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
