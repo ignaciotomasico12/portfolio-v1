@@ -1,4 +1,9 @@
 {
+    "pages":{
+        "index": "Portfolio | Ignacio Tomás",
+        "about": "Sobre mí | Ignacio Tomás",
+        "contact": "Contacto | Ignacio Tomás"
+    },
     "menu": {
         "download": "Descargar CV",
         "github": "GitHub",
@@ -23,7 +28,8 @@
     "contact":{
         "title":"Contacta Conmigo",
         "form":{
-            "name": "Nombre y Apellidos",
+            "name": "Nombre y Apellido",
+            "company": "Empresa",
             "mail": "Correo Electrónico",
             "subject": "Asunto",
             "message": "Mensaje Adicional",

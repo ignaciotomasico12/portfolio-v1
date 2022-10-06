@@ -21,6 +21,7 @@ export default function About() {
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
     const [name, setName] = useState('');
+    const [company, setCompany] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
@@ -39,6 +40,7 @@ export default function About() {
             setSpin(true);
             let data = {
                 name,
+                company,
                 email,
                 subject,
                 message,
@@ -59,6 +61,7 @@ export default function About() {
                     console.log('Response succeeded!');
                     setSubmitted(true);
                     setName('');
+                    setCompany('');
                     setEmail('');
                     setSubject('');
                     setMessage('');
@@ -96,15 +99,21 @@ export default function About() {
     return (
         <>
             <Head>
-                <title>Contacto | Ignacio Tomás</title>
+                <title>{t('pages.contact')}</title>
             </Head>
             <section className={styles.contact__section}>
                 <div className={styles.form__wrapper}>
                     <form className={styles.contact__form} id="contact_form"> 
-                        <div className={styles.textInput}>
-                            <input placeholder="" type='text' name='name' className={styles.inputField} onChange={(e)=>{setName(e.target.value)}}/>
-                            <label htmlFor='name'>{t('contact.form.name')}</label>
-                        </div>  
+                        <div className={styles.double__input}> 
+                            <div className={styles.textInput}>
+                                <input placeholder="" type='text' name='name' className={styles.inputField} onChange={(e)=>{setName(e.target.value)}}/>
+                                <label htmlFor='name'>{t('contact.form.name')}</label>
+                            </div>
+                            <div className={styles.textInput}>
+                                <input placeholder="" type='text' name='company' className={styles.inputField} onChange={(e)=>{setCompany(e.target.value)}}/>
+                                <label htmlFor='company'>{t('contact.form.company')}</label>
+                            </div>
+                        </div>
                         <div className={styles.textInput}>
                             <input placeholder="" type='email' name='email' className={styles.inputField} onChange={(e)=>{setEmail(e.target.value)}}/>
                             <label htmlFor='email'>{t('contact.form.mail')}</label>
@@ -146,10 +155,10 @@ export default function About() {
                             </a>
                         </li>
                         <li>
-                            <div>
+                            <a href='https://www.google.es/maps/place/C.+de+Balbino+Orensanz,+50014+Zaragoza' target="_blank" rel='noreferrer'>
                                 <i className="fa-light fa-location-dot"></i>
                                 <span>C/ Balbino Orensánz, Zaragoza, Zaragoza 50014</span>
-                            </div>
+                            </a>
                         </li>
                     </ul>
                 </div>

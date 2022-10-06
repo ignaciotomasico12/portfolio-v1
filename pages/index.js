@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Portfolio | Ignacio Tomás</title>
+        <title>{t('pages.index')}</title>
       </Head>
       <Box className={styles.home__block}>
         <div className={scroll} id="scroll_warpper">

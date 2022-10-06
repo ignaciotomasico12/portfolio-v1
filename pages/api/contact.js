@@ -1,15 +1,14 @@
-import { readFileSync } from 'fs';
-
 export default async (req, res) => { 
     let nodemailer = require('nodemailer');
     let hbs = require('nodemailer-express-handlebars');
     let path = require('path');
     const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
 
-    const { email, name, subject, message, lang} = req.body;
+    const { email, name, company, subject, message, lang} = req.body;
     const locals = {
         pEmail: email,
         pName: name,
+        pCompany: company,
         pSubject: subject,
         pMessage: message,
     }
