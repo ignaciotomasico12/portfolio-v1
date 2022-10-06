@@ -56,7 +56,6 @@ export default function About() {
                 if (res.status === 200) {
                     setSendIcon('fa-light fa-paper-plane-top');
                     setSpin(false);
-                    console.log(res);
                     console.log('Response succeeded!');
                     setSubmitted(true);
                     setName('');
@@ -69,7 +68,6 @@ export default function About() {
                 if(res.status === 400 || res.status === 500) {
                     setSendIcon('fa-light fa-paper-plane-top');
                     setSpin(false);
-                    console.log(res);
                     console.log('Response failed!');
                     setSubmitted(false);
                     setOpenError(true);

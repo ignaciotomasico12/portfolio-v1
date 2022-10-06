@@ -1,10 +1,8 @@
-
-let nodemailer = require('nodemailer');
-let pug = require('pug');
-
-const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
-
 export default async (req, res) => { 
+    let nodemailer = require('nodemailer');
+    let pug = require('pug');
+    const MAIL_PASSWORD = process.env.NEXT_PUBLIC_GMAIL_PASS;
+
     const { email, name, subject, message, client, owner} = req.body;
     const locals = {
         pEmail: email,
@@ -15,6 +13,7 @@ export default async (req, res) => {
 
     const transporter = nodemailer.createTransport({
         port: 465,
+        service: 'gmail',
         host: "smtp.gmail.com",
         auth: {
             user: 'contactoitomas@gmail.com',
@@ -59,34 +58,30 @@ export default async (req, res) => {
         html: pug.renderFile(client, locals),
     };
 
-    if(email){
-        await new Promise((resolve, reject) => {
-            transporter.sendMail(ownerMail, (err, info) => {
-                if (err) {
-                    console.error(err);
-                    reject(err);
-                    res.send('error:' + JSON.stringify(err));
-                } else {
-                    console.log(info);
-                    resolve(info);
-                    res.send('success');
-                }
-            });
-            transporter.sendMail(clientMail, (err, info) => {
-                if (err) {
-                    console.error(err);
-                    reject(err);
-                    res.send('error:' + JSON.stringify(err));
-                } else {
-                    console.log(info);
-                    resolve(info);
-                    res.send('success');
-                }
-            });
+    await new Promise((resolve, reject) => {
+        transporter.sendMail(ownerMail, (err, info) => {
+            if (err) {
+                console.error(err);
+                reject(err);
+            } else {
+                console.log(info);
+                resolve(info);
+            }
         });
-        
-        res.status(200).json({ status: "Message Sent" });
-    } else {
-        res.status(400).json({ status: "Missing Fields" });
-    }
+    });
+    
+    await new Promise((resolve, reject) => {
+        transporter.sendMail(clientMail, (err, info) => {
+            if (err) {
+                console.error(err);
+                reject(err);
+            } else {
+                console.log(info);
+                resolve(info);
+            }
+        });
+    });
+
+    res.status(200).json({ status: "Message Sent" });
+    return;
 };
