@@ -16,7 +16,7 @@ function Navbar() {
 
     const router = useRouter()
     const { t } = useTranslation('common')
-    let onToggleLanguageClick, openLangMenu;
+    let onToggleLanguageClick, openLangMenu, openSocialMenu;
 
     useEffect(() => {
         onToggleLanguageClick = (newLocale) => {
@@ -26,43 +26,51 @@ function Navbar() {
         openLangMenu = () => {
             document.getElementById('lang-menu').classList.toggle(`${styles.open}`)
         }
+        openSocialMenu = () => {
+            document.getElementById('social_menu').classList.toggle(`${styles.open}`)
+        }
     });
 
     return (
         <header className={styles.header}>
             <Logo hasAnimation={true}/>
-            <nav className={styles.navbar}>
-                <ul className={styles.navbar__list}>
-                    <div className={styles.cv__button}>
-                        <Button linkTo='/files/Curriculum_Vitae_Ignacio_Tomás.pdf' 
-                            label='menu.download' 
-                            icon='fa-light fa-arrow-down' 
-                            hoverTo={false}
-                            animation='top'
-                            target='blank'
-                        />
-                    </div>
-                    {menuList.map((item, i) => (
-                        <li className={styles.navbar__li} key={i}>
-                            <Tooltip title={t(`menu.${item.title}`)} arrow placement="bottom">
-                                <a href={item.href} target="_blank" rel="noreferrer"><i className={item.icon}></i></a>
-                            </Tooltip>
-                        </li>
-                    ))}
-                    <ul id="lang-menu" className={` ${styles.navbar__li}`} onClick={() => openLangMenu()}>
-                        <Tooltip title={t('menu.language.es')} arrow placement="right">
-                            <li className={`${router.locale === 'es' ? styles.current : ''} ${styles.languaje__li}`}>
-                                <div onClick={() => onToggleLanguageClick('es')} className="flag flag-icon-background flag-icon-es"></div>
+            <div className={styles.nav__wrapper}>
+                <div className={styles.cv__button}>
+                    <Button linkTo='/files/Curriculum_Vitae_Ignacio_Tomás.pdf' 
+                        label='menu.download' 
+                        icon='fa-light fa-arrow-down' 
+                        hoverTo={false}
+                        animation='top'
+                        target='blank'
+                    />
+                </div>
+                <div className={styles.open__menu} onClick={() => openSocialMenu()}>
+                    <span><i class="fa-light fa-share-nodes"></i></span>
+                </div>
+                <nav className={styles.navbar} id="social_menu">
+                    <ul className={styles.navbar__list}>
+                        {menuList.map((item, i) => (
+                            <li className={styles.navbar__li} key={i}>
+                                <Tooltip title={t(`menu.${item.title}`)} arrow placement="bottom">
+                                    <a href={item.href} target="_blank" rel="noreferrer"><i className={item.icon}></i></a>
+                                </Tooltip>
                             </li>
-                        </Tooltip>
-                        <Tooltip title={t('menu.language.en')} arrow placement="right">
-                            <li className={`${router.locale === 'en' ? styles.current : ''} ${styles.languaje__li}`}>
-                                <div onClick={() => onToggleLanguageClick('en')} className="flag flag-icon-background flag-icon-gb"></div>
-                            </li>
-                        </Tooltip>
+                        ))}
                     </ul>
+                </nav>
+                <ul id="lang-menu" className={`${styles.lang__menu} ${styles.navbar__li}`} onClick={() => openLangMenu()}>
+                    <Tooltip title={t('menu.language.es')} arrow placement="right">
+                        <li className={`${router.locale === 'es' ? styles.current : ''} ${styles.languaje__li}`}>
+                            <div onClick={() => onToggleLanguageClick('es')} className={`${styles.es} flag flag-icon-background flag-icon-es`}></div>
+                        </li>
+                    </Tooltip>
+                    <Tooltip title={t('menu.language.en')} arrow placement="right">
+                        <li className={`${router.locale === 'en' ? styles.current : ''} ${styles.languaje__li}`}>
+                            <div onClick={() => onToggleLanguageClick('en')} className={`${styles.gb} flag flag-icon-background flag-icon-gb`}></div>
+                        </li>
+                    </Tooltip>
                 </ul>
-            </nav>
+            </div>
         </header>
     );
 }

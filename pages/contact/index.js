@@ -128,11 +128,6 @@ export default function About() {
             </Head>
             <section className={styles.contact__section}>
                 <div className={styles.form__wrapper}>
-                    <div className={styles.circle_header}>
-                        <div className={styles.circle}>
-                            <img src="/img/email.png" alt="contact envelope" className={styles.envelope}/>
-                        </div>
-                    </div>
                     <form className={styles.contact__form} id="contact_form"> 
                         <div className={styles.double__input}> 
                             <div className={styles.textInput}>
