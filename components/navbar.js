@@ -45,7 +45,7 @@ function Navbar() {
                     />
                 </div>
                 <div className={styles.open__menu} onClick={() => openSocialMenu()}>
-                    <span><i class="fa-light fa-share-nodes"></i></span>
+                    <span><i className="fa-light fa-share-nodes"></i></span>
                 </div>
                 <nav className={styles.navbar} id="social_menu">
                     <ul className={styles.navbar__list}>

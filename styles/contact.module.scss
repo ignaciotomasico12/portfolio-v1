@@ -24,7 +24,6 @@
         box-shadow: $box_shadow;
         padding: 20px;
         width: 50%;
-        position: relative;
         @include mobile {
             width: 100%;
         }
@@ -263,7 +262,9 @@
             font-weight: 300;
             font-size: 1rem;
             @include mobile {
-                font-size: 0.85rem;
+                font-size: 0.95rem;
+                text-align: left;
+                word-spacing: 0.1rem;
             }
         }
         .contact__list{
