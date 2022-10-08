@@ -4,7 +4,9 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta name="theme-color" content="#00FFC3" />
+        <meta name="theme-color" content="#1E2D40" />
+        <meta name="msapplication-navbutton-color" content="#1E2D40" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#1E2D40"></meta>
         <meta name="title" content="Ignacio Tomás | Portfolio" />
         <meta name="description" 
           content="Soy un desarrollador de Frontend. Mi especialidad es React, 
