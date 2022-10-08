@@ -6,6 +6,7 @@
     },
     "menu": {
         "download": "Download CV",
+        "download-short": "CV",
         "github": "GitHub",
         "linkedin": "linkedin",
         "phone": "Phone",
@@ -50,7 +51,7 @@
                 "empty": "Please fill all the fields"
             }
         },
-        "description": "Send me a message with any doubt you may have about my profile or experience. You can also use the form to send me any offer. I check my email daily and I usually answer immediately, so it will not take long to receive an answer from me 😉",
+        "description": "Send me a message with any doubt you may have about my profile or experience. You can also use the form to send me any offer. I check my email daily and I usually answer immediately, so it will not take long to receive an answer from me.",
         "icons":{
             "linkedin": "Find me in Linkedin",
             "phone": "Call me if in doubt",

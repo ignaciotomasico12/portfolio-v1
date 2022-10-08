@@ -6,6 +6,7 @@
     },
     "menu": {
         "download": "Descargar CV",
+        "download-short": "CV",
         "github": "GitHub",
         "linkedin": "linkedin",
         "phone": "Teléfono",
@@ -50,7 +51,7 @@
                 "empty": "Por favor, rellena todos los campos"
             }
         },
-        "description": "Mándame un mensaje con cualquier duda que tengas acerca de mi perifl o de mi experiencia. También puedes usuar el formulario para cualquier oferta o propuesta que quieras hacerme. Reviso mi email diariamente y suelo contestar de forma inmediata, por lo que no tardarás en recibir una respuesta por mi parte 😉",
+        "description": "Mándame un mensaje con cualquier duda que tengas acerca de mi perifl o de mi experiencia. También puedes usuar el formulario para cualquier oferta o propuesta que quieras hacerme. Reviso mi email diariamente y suelo contestar de forma inmediata, por lo que no tardarás en recibir una respuesta por mi parte.",
         "icons":{
             "linkedin": "Contacta conmigo vía Linkedin",
             "phone": "Llámame si tienes alguna duda",

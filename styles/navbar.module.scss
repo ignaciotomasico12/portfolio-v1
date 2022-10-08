@@ -22,26 +22,40 @@
     }
 }
 .nav__wrapper{
-    width: 50%;
+    width: 60%;
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: flex-end;
     gap: 20px;
     @include mobile {
-        flex-direction: row-reverse;
-        justify-content: flex-start;
+        flex-direction: row;
+        justify-content: flex-end;
         gap: 25px;
     }
     .cv__button{
         @include mobile {
-            position: absolute;
-            top: 75px;
-            width: 100%;
-            left: 0px;
-            padding: 0 15px;
-            background-color: $bg_primary;
-            padding-bottom: 10px;
+            order: 1;
+            div{
+                a{
+                    &:before{
+                        content: "CV";
+                        background-color: $btn_primary;
+                        padding: 9px;
+                        border-bottom-left-radius: $b_radius;
+                        border-top-left-radius: $b_radius;
+                        display: block;
+                    }
+                    div{
+                        height: unset !important;
+                        padding: 9px !important;
+                    }
+                    span{
+                        display: none;
+                        
+                    }
+                }
+            }
         }
     }
     .open__menu{
@@ -49,7 +63,7 @@
         @include mobile {
             display: block;
             background-color: $btn_primary;
-            color: $primary;
+            color: #fff;
             font-size: 22px;
             width: 35px;
             aspect-ratio: 1/1;
@@ -59,6 +73,7 @@
             align-items: center;
             align-content: center;
             border: 1px solid transparent;
+            order: 2;
         }
     }
     .navbar{
@@ -71,19 +86,20 @@
             visibility: hidden;
             opacity: 0;
             position: absolute;
-            right: 15px;
+            right: 75px;
             top: 75px;
             transition: all 0.3s ease-in-out;
         }
-        &.open{
+        &.opened_menu{
             @include mobile {
-                height: 185px;
+                height: 230px;
                 width: fit-content;
                 visibility: visible;
                 opacity: 1;
                 background: $bg_primary;
-                padding: 0px 15px 0px 15px;
-                margin: 0px -15px 0px -15px;
+                padding: 15px;
+                margin: -15px;
+                border-radius: $b_radius;
                 .navbar__list{
                     flex-direction: column;
                     .navbar__li {
@@ -105,6 +121,7 @@
             gap: 15px;
             list-style-type: none;
             @include mobile {
+                gap: 20px;
                 flex-direction: column;
             }
             .navbar__li {
@@ -137,61 +154,56 @@
             }
         } 
     }
-    .lang__menu{
-        position: relative;
+    .open__lang{
+        display: block;
+        color: $primary;
         width: 35px;
-        height: 35px;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: center;
-        justify-content: space-between;
-        list-style: none;
-        border-radius: $b_radius;
-        transition: all .3s ease;
-        @include mobile {
-            background-color: $btn_primary;
-        }
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        order: 3;
         &:hover{
-            background-color: $btn_primary;
-            height: 70px;
-            margin-top: 50px;
-            .languaje__li{
+            height: 90px;   
+            margin-top: 55px;
+            span{
+                background-color: $btn_primary;
+            }
+            & + .language{
                 height: 35px;
-                div{
-                    height: 22px;
+                width: fit-content;
+                visibility: visible;
+                opacity: 1;
+                background: $bg_primary;
+                padding: 0px;
+                margin: 0px;
+                border-radius: $b_radius;
+                .lang__menu{
+                    flex-direction: column;
+                    .languaje__li{
+                        background-color: $btn_primary;
+                        height: 35px;
+                        border-radius: $b_radius;
+                    }
                 }
             }
         }
-        &.open {
-            background-color: $btn_primary;
-            height: 70px;
-            margin-top: 50px;
-            @include mobile {
-                height: 80px;
-                margin-top: 60px;
-            }
-            .languaje__li{
-                height: 35px;
-                div{
-                    height: 22px;
-                }
-            }
-        }
-        .languaje__li{
-            width: 35px;
+        span{
+            border-radius: $b_radius;
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 0px;
+            align-items: center;
+            align-content: center;
+            border: 1px solid transparent;
             transition: all .3s ease;
-            border-radius: 4px;
-            order: 2;
+            background-color: transparent;
+            height: 35px;
+            width: 35px;
+            @include mobile {
+                background-color: $btn_primary;
+            }
             div{
                 border-radius: 4px;
                 width: 22px;
-                height: 0px;
+                height: 22px;
                 background-size: contain;
                 background-position: 50%;
                 background-repeat: no-repeat;
@@ -200,17 +212,106 @@
             .es{
                 background-image: url('/img/flags/es.svg');
             }
-            .gb{
+            .en{
                 background-image: url('/img/flags/gb.svg');
             }
         }
-        .current {
+        
+    }
+    .language{
+        display: flex;
+        justify-content: flex-end;
+        background-color: transparent;
+        height: 0px;
+        width: 0px;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        right: 32px;
+        top: 65px;
+        transition: all 0.3s ease-in-out;
+        @include mobile {
+            top: 75px;
+            right: 15px;
+        }
+        &:hover{
             height: 35px;
-            order: 1;
-            div{
-                border-radius: 4px;
-                height: 22px;
+            width: fit-content;
+            visibility: visible;
+            opacity: 1;
+            background: $bg_primary;
+            padding: 0px;
+            margin: 0px;
+            border-radius: $b_radius;
+            .lang__menu{
+                flex-direction: column;
+                .languaje__li{
+                    background-color: $btn_primary;
+                    height: 35px;
+                    border-radius: $b_radius;
+                }
             }
         }
+        &.opened_lang{
+            @include mobile {
+                height: 65px;
+                width: fit-content;
+                visibility: visible;
+                opacity: 1;
+                background: $bg_primary;
+                padding: 15px;
+                margin: -15px;
+                border-radius: $b_radius;
+                .lang__menu{
+                    flex-direction: column;
+                    .languaje__li{
+                        background-color: $btn_primary;
+                        height: 35px;
+                        border-radius: $b_radius;
+                    }
+                }
+            }
+        }
+        .lang__menu{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            margin: 0;
+            padding: 0;
+            gap: 15px;
+            list-style-type: none;
+            @include mobile {
+                gap: 20px;
+                flex-direction: column;
+            }
+            .languaje__li {
+                display: flex;
+                width: 35px;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                gap: 10px;
+                color: #fff;
+                cursor: pointer;
+                div{
+                    width: 22px;
+                    aspect-ratio: 1/1;
+                    border-radius: $b_radius;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    border: 1px solid transparent;
+                }
+                .es{
+                    background-image: url('/img/flags/es.svg');
+                }
+                .en{
+                    background-image: url('/img/flags/gb.svg');
+                }
+            }
+        } 
     }
 }

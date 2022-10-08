@@ -198,10 +198,10 @@ export default function About() {
                             </a>
                         </li>
                         <li>
-                            <a href='https://www.google.es/maps/place/C.+de+Balbino+Orensanz,+50014+Zaragoza' target="_blank" rel='noreferrer'>
+                            <div>
                                 <i className="fa-light fa-location-dot"></i>
                                 <span>C/ Balbino Orensánz, Zaragoza, Zaragoza 50014</span>
-                            </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
