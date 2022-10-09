@@ -5,17 +5,33 @@
 .header{
     width: 100%;
     position: fixed;
+    left: 0;
     top: 0px;
     height: 80px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: $bg_primary;
+    transition: all .3s ease;
+    z-index: 99;
+    &.scrolling{
+        box-shadow: 0px 10px 20px -4px rgba(0, 0, 0, 0.3);
+    }
+}
+.header__wrapper{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 32px;
-    background-color: $bg_primary;
-    z-index: 99;
+    transition: all .3s ease;
+    position: fixed;
+    height: 80px; 
+    top: 0;
     @include mobile {
         max-width: 100%;
         padding: 0 15px;
@@ -35,16 +51,25 @@
     }
     .cv__button{
         @include mobile {
+            width: 35px;
+            height: 35px;
             order: 1;
             div{
+                width: 100%;
+                height: 100%;
                 a{
+                    padding: 0px;
+                    width: 100%;
+                    height: 100%;
                     &:before{
                         content: "CV";
-                        background-color: $btn_primary;
-                        padding: 9px;
-                        border-bottom-left-radius: $b_radius;
-                        border-top-left-radius: $b_radius;
-                        display: block;
+                        border-radius: $border_radius;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        align-content: center;
+                        width: 100%;
+                        height: 100%;
                     }
                     div{
                         height: unset !important;
@@ -63,11 +88,11 @@
         @include mobile {
             display: block;
             background-color: $btn_primary;
-            color: #fff;
+            color: $white;
             font-size: 22px;
             width: 35px;
             aspect-ratio: 1/1;
-            border-radius: $b_radius;
+            border-radius: $border_radius;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -99,13 +124,13 @@
                 background: $bg_primary;
                 padding: 15px;
                 margin: -15px;
-                border-radius: $b_radius;
+                border-radius: $border_radius;
                 .navbar__list{
                     flex-direction: column;
                     .navbar__li {
                         background-color: $btn_primary;
                         height: 35px;
-                        border-radius: $b_radius;
+                        border-radius: $border_radius;
                     }
                 }
             }
@@ -130,13 +155,13 @@
                 align-items: center;
                 align-content: center;
                 gap: 10px;
-                color: #fff;
+                color: $white;
                 cursor: pointer;
                 a{
                     font-size: 22px;
                     width: 35px;
                     aspect-ratio: 1/1;
-                    border-radius: $b_radius;
+                    border-radius: $border_radius;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -175,19 +200,19 @@
                 background: $bg_primary;
                 padding: 0px;
                 margin: 0px;
-                border-radius: $b_radius;
+                border-radius: $border_radius;
                 .lang__menu{
                     flex-direction: column;
                     .languaje__li{
                         background-color: $btn_primary;
                         height: 35px;
-                        border-radius: $b_radius;
+                        border-radius: $border_radius;
                     }
                 }
             }
         }
         span{
-            border-radius: $b_radius;
+            border-radius: $border_radius;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -242,13 +267,13 @@
             background: $bg_primary;
             padding: 0px;
             margin: 0px;
-            border-radius: $b_radius;
+            border-radius: $border_radius;
             .lang__menu{
                 flex-direction: column;
                 .languaje__li{
                     background-color: $btn_primary;
                     height: 35px;
-                    border-radius: $b_radius;
+                    border-radius: $border_radius;
                 }
             }
         }
@@ -261,13 +286,13 @@
                 background: $bg_primary;
                 padding: 15px;
                 margin: -15px;
-                border-radius: $b_radius;
+                border-radius: $border_radius;
                 .lang__menu{
                     flex-direction: column;
                     .languaje__li{
                         background-color: $btn_primary;
                         height: 35px;
-                        border-radius: $b_radius;
+                        border-radius: $border_radius;
                     }
                 }
             }
@@ -293,12 +318,12 @@
                 align-items: center;
                 align-content: center;
                 gap: 10px;
-                color: #fff;
+                color: $white;
                 cursor: pointer;
                 div{
                     width: 22px;
                     aspect-ratio: 1/1;
-                    border-radius: $b_radius;
+                    border-radius: $border_radius;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -315,3 +340,4 @@
         } 
     }
 }
+

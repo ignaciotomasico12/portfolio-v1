@@ -5,21 +5,31 @@
 // COLORS //
 
 $primary: #00FFC3;
+$primary_light: #00FFC31C;
 $secondary: #25AFB1;
 $btn_primary: #3C4654;
 $btn_secondary: #323D4D;
 $bg_primary: #1E2D40;
 $bg_secondary: #1B344D;
 $dark: #20252C;
+$white: #E9F3FF;
+$dark_secondary: #262D36;
+$dark_gradient: linear-gradient(to right bottom, #20252C, #262D36 120%);
+$title: #A9A297;
 $success: #8DD773;
 $warn: #D7A143;
 $error: #D74345;
+
+// ELEMENTS //
+
+$border_radius: 6px;
+$box_shadow: rgba(0, 0, 0, 0.3) 0px 20px 25px, rgba(0, 0, 0, 0.04) 0px 10px 10px;
 
 // FONT STYLE //
 
 $font-primary: 'Montserrat', sans-serif;
 $font-secondary: 'Fira Code', monospace;
-$font-awesome: 'Font Awesome 6 Brands';
+$font-awesome: 'Font Awesome 6 Pro';
 $font-weight: 100;
 
 // DEVICE WIDTHS
@@ -28,12 +38,6 @@ $mobile: 600px;
 $laptop: 992px;
 $tablet: 768px;
 $desktop: 1440px;
-
-
-// ELEMENTS //
-
-$b_radius: 6px;
-$box_shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px, rgba(0, 0, 0, 0.04) 0px 10px 10px;
 
 :export {
   primaryColor: $primary;

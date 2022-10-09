@@ -1,6 +1,6 @@
 {
     "pages":{
-        "index": "Portfolio | Ignacio Tomás",
+        "index": "Ignacio Tomás",
         "about": "About | Ignacio Tomás",
         "contact": "Contact | Ignacio Tomás"
     },
@@ -24,7 +24,9 @@
         }
     },
     "about":{
-
+        "title": "About me",
+        "paragraph1": "Hello, I'm Ignacio Tomás Floría, I'm a Frontend developer and I love creating and developing new and challenging projects that allow me to continue learning and growing as a professional. I started programming a few years ago, when I graduated from high school and decided to study a higher degree in Computer Networks. There, I learned the basics of web programming with HTML and CSS. Since then, thanks to a colleague and good friend, who taught me almost everything I know about web programming, I have been specializing in various web programming languages. I have been able to participate in various projects in my first job as a web developer, ranging from a mobile application to make reservations for paddle tennis courts to an Intranet.",
+        "paragraph2": "In these few years as a web developer, I have been able to learn and work with different web programming languages."
     },
     "contact":{
         "title":"Contact Me",

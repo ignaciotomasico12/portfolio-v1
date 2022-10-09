@@ -4,6 +4,7 @@
 
 .presentation{
     width: 100%;
+    height: calc(100vh - 150px);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -49,12 +50,13 @@
         .resume{
             margin-bottom: 20px;
             h5{
-                color: #fff;
+                color: $title;
                 margin-bottom: 5px;
                 font-family: $font-primary;
+                font-weight: 500;
             }
             p{
-                color: #fff;
+                color: $white;
                 text-align: justify;
                 font-family: $font-primary;
                 @include mobile {

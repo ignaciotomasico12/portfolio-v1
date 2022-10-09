@@ -18,10 +18,7 @@ export default function Presentation() {
                 <Typography variant='body1'>{t('main.presentation.description')}</Typography>
             </div>
             <Button linkTo='/contact' 
-                label='main.presentation.contact_btn' 
-                icon='fa-light fa-envelope' 
-                hoverTo='fa-light fa-envelope-open'
-                animation='top'
+                label='main.presentation.contact_btn'
             />
         </div>
         <div className={styles.image__wrapper}>

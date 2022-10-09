@@ -9,74 +9,38 @@
         justify-content: space-between;
         align-items: center;
         align-content: center;
-        border-radius: $b_radius;
+        border-radius: $border_radius;
         padding: 0px;
         cursor: pointer;
-        color: #fff;
+        color: $primary;
+        border: 1px solid $primary;
         font-weight: 300;
         font-size: 14px;
-        transition: all .3 ease;
+        transition: all .3s ease;
         width: fit-content;
-        height: 40px;
+        
+        padding: 10px 18px 10px 18px;
+        gap: 15px;
         &:hover{
-            color: $primary;
+            background-color: $primary_light;
             .icon{
-                .primary{
-                    display: none;
-                }
                 i{
                     display: inline-block;
                     position: relative;
-                    -moz-animation: bounce 0.5s infinite linear;
-                    -o-animation: bounce 0.5s infinite linear;
-                    -webkit-animation: bounce 0.5s infinite linear;
-                    animation: bounce 0.5s infinite linear;
-                }
-            }
-            .no__spin{
-                i{
-                    animation-name: 'fa-spin' !important;
-                    animation-duration: 1.5s !important;
-                }
-            }
-            .top{
-                i{
-                    -moz-animation: bounceTop 0.5s infinite linear;
-                    -o-animation: bounceTop 0.5s infinite linear;
-                    -webkit-animation: bounceTop 0.5s infinite linear;
-                    animation: bounceTop 0.5s infinite linear;
-                }
-                .no__spin{
-                    animation-name: fa-spin;
-                }
-            }
-            .right{
-                i{
-                    -moz-animation: bounceRight 0.5s infinite linear;
-                    -o-animation: bounceRight 0.5s infinite linear;
-                    -webkit-animation: bounceRight 0.5s infinite linear;
-                    animation: bounceRight 0.5s infinite linear;
-                }
-                .no__spin{
-                    animation-name: fa-spin;
                 }
             }
         }
         span{
-            background-color: $btn_primary;
-            padding: 10px;
-            border-bottom-left-radius: $b_radius;
-            border-top-left-radius: $b_radius;
-            height: 100%;
-            display: block;
+            //background-color: $btn_primary;
+            border-bottom-left-radius: $border_radius;
+            border-top-left-radius: $border_radius;
+            display: flex;
         }
         .icon{
-            background-color: $btn_secondary;
-            padding: 12px;
-            border-top-right-radius: $b_radius;
-            border-bottom-right-radius: $b_radius;
-            height: 100%;
-            display: block;
+            //background-color: $btn_secondary;
+            border-top-right-radius: $border_radius;
+            border-bottom-right-radius: $border_radius;
+            display: flex;
             @include mobile {
                 aspect-ratio: unset;
             }

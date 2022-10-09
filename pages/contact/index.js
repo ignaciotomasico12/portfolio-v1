@@ -171,11 +171,7 @@ export default function About() {
                         </div>
                         <Button linkTo={false}
                             label='contact.form.submit' 
-                            icon={sendIcon}
-                            hoverTo={false}
-                            animation='left'
                             clickFn={(e)=>{handleSubmit()}}
-                            spin={spin}
                         />
                     </form>
                 </div>
@@ -187,7 +183,7 @@ export default function About() {
                     <ul className={styles.contact__list}>
                         <li>
                             <a href="https://www.linkedin.com/in/ignacio-tom%C3%A1s-flor%C3%ADa-b0232b1b1/" target="_blank" rel='noreferrer'>
-                                <i className="fa-brands fa-linkedin"></i>
+                                <i className="fa-brands fa-linkedin-in"></i>
                                 <span>Linkedin</span>
                             </a>
                         </li>

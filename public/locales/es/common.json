@@ -1,6 +1,6 @@
 {
     "pages":{
-        "index": "Portfolio | Ignacio Tomás",
+        "index": "Ignacio Tomás",
         "about": "Sobre mí | Ignacio Tomás",
         "contact": "Contacto | Ignacio Tomás"
     },
@@ -24,13 +24,15 @@
         }
     },
     "about":{
-
+        "title": "Sobre Mí",
+        "paragraph1": "Hola, soy Ignacio Tomás Floría, soy desarrollador Frontend y me encanta crear y desarrollar proyectos nuevos y desafiantes que me permitan seguir aprendiendo y creciendo como profesional. Empecé a programar hace unos pocos años, cuando salí del Bachillerato y decí cursar un grado superior en Redes Informáticas. Ahí, aunque fuese poco, aprendí las nociones basicas de la programación web con HTML y CSS. Desde entonces gracias a un compañero y buen amigo, que me enseñó casi todo lo que sé acerca de la programación web, me he ido especializando en diversos lenguajes de programación web. He podido participar en diversos preyctos en mi primer trabajo como desarrollador web, que van desde una aplicación movil para hacer reservas de pistas de padel hasta una Intranet.",
+        "paragraph2": "En estos pocos años como desarrollador web, he podido aprender y trabajar con distintos lenguajes de programación web."
     },
     "contact":{
         "title":"Contacta Conmigo",
         "form":{
             "name": {
-                "title": "Nombre y Apellid",
+                "title": "Nombre y Apellido",
                 "placehld": "Ej. John Doe"
             },
             "company": {
