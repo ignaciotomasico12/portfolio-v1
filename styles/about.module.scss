@@ -4,7 +4,16 @@
 .about__section{
     width: 100%;
     display: flex;
-    margin-top: 5rem;
+    height: 100vh;
+    min-height: 100vh;
+    scroll-snap-align: start;
+    visibility: visible;
+    opacity: 1;
+    @include mobile {
+        margin-top: 5rem;
+        min-height: unset;
+        height: unset;
+    }
     .wrapper{
         width: 100%;
         display: flex;
@@ -31,7 +40,7 @@
             transition: all 0.3s ease-in-out;
             @include mobile {
                 width: 95%;
-                height: 450px;
+                height: 480px;
             }
             &::after{
                 content: "";
@@ -92,7 +101,7 @@
                     display: block;
                     position: relative;
                     width: calc(100% - 200px);
-                    height: 1px;
+                    height: 2px;
                     margin-right: 25px;
                     background-color: $title;
                 }

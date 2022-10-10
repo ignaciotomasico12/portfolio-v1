@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import About from '../components/about';
 import Presentation from '../components/presentation';
+import Experience from '../components/experience';
 import styles from '../styles/home.module.scss';
 import $ from 'jquery';
 
@@ -39,6 +40,7 @@ export default function Home() {
         <div className={styles.content__wrapper}>
           <Presentation />
           <About />
+          <Experience />
         </div>
       </Box>
     </>

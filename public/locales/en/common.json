@@ -19,7 +19,7 @@
     "main":{
         "presentation":{
             "title": "Frontend Developer",
-            "description": "I am a Drontend developer. Actually working with React and learning news web frameworks such as Next.js and Node.js. I have experience developing projects with HTML, Css and Scss.",
+            "description": "I am a Frontend developer. Actually working with React and learning news web frameworks such as Next.js and Node.js. I have experience developing projects with HTML, Css and Scss.",
             "contact_btn": "Contact me"
         }
     },
@@ -27,6 +27,38 @@
         "title": "About me",
         "paragraph1": "Hello, I'm Ignacio Tomás Floría, I'm a Frontend developer and I love creating and developing new and challenging projects that allow me to continue learning and growing as a professional. I started programming a few years ago, when I graduated from high school and decided to study a higher degree in Computer Networks. There, I learned the basics of web programming with HTML and CSS. Since then, thanks to a colleague and good friend, who taught me almost everything I know about web programming, I have been specializing in various web programming languages. I have been able to participate in various projects in my first job as a web developer, ranging from a mobile application to make reservations for paddle tennis courts to an Intranet.",
         "paragraph2": "In these few years as a web developer, I have been able to learn and work with different web programming languages."
+    },
+    "experience":{
+        "title": "Work experience",
+        "company1": {
+            "title": "Technical assistant",
+            "company": "Calat Sistemas & Comunicaciones",
+            "date": "June 2020 - September 2020",
+            "description": {
+                "p1": "Assistance to the technical user, in questions of any computer field, VPN creation, connection to online servers, domain management and subdomains, email account management, user account management in work teams.",
+                "p2": "Assembly and repair of work equipment, both laptops and towers, installation of operating systems, software and hardware management.",
+                "p3": "Creation and management of web pages in WordPress."
+            }
+        },
+        "company2": {
+            "title": "IT Technician & Web Developer",
+            "company": "Tréndico Group S.L.",
+            "date": "January 2021 - October 2022",
+            "description": {
+                "p1": "Management and creation of complex Databases in MySQL, PostgreSQL and MongoDB. Carrying out complex queries to search for data, both in the database and in web applications connected via API or local connection.",
+                "p2": "Collaboration as Frontend developer and UI and UX designer in an intarnet created with MERN (MongoDB, Express, React and NodeJS). This web was also connected to Firfebase for user management and authentication.Connection to an Api created with NodeJS and Express for data management.",
+                "p3": "Participation in the development of a mobile application for Android and IOS as Frontend developer. The App was created in React, Ionic and NodeJS. The app was used to make reservations for paddle tennis courts, it had a user section with reservation history and personal data management. It also had a news and events section, and an administrator section for track management and reservations.",
+                "p4": "UI and UX design of an e-commerce website already created in php. The design was outdated and a redesign was made to make it responsive and adapt well to all devices."
+            }
+        },
+        "company3": {
+            "title": "Frontend Developer",
+            "company": "Avanade Sapin",
+            "date": "October 2022 - Present",
+            "description": {
+                "p1": "Still to be discovered..."
+            }
+        }
     },
     "contact":{
         "title":"Contact Me",

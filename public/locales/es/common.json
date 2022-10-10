@@ -28,6 +28,38 @@
         "paragraph1": "Hola, soy Ignacio Tomás Floría, soy desarrollador Frontend y me encanta crear y desarrollar proyectos nuevos y desafiantes que me permitan seguir aprendiendo y creciendo como profesional. Empecé a programar hace unos pocos años, cuando salí del Bachillerato y decí cursar un grado superior en Redes Informáticas. Ahí, aunque fuese poco, aprendí las nociones basicas de la programación web con HTML y CSS. Desde entonces gracias a un compañero y buen amigo, que me enseñó casi todo lo que sé acerca de la programación web, me he ido especializando en diversos lenguajes de programación web. He podido participar en diversos preyctos en mi primer trabajo como desarrollador web, que van desde una aplicación movil para hacer reservas de pistas de padel hasta una Intranet.",
         "paragraph2": "En estos pocos años como desarrollador web, he podido aprender y trabajar con distintos lenguajes de programación web."
     },
+    "experience":{
+        "title": "Experiencia Laboral",
+        "company1": {
+            "title": "Asistente Técnico",
+            "company": "Calat Sistemas & Comunicaciones",
+            "date": "Junio 2020 - Septiembre 2020",
+            "description": {
+                "p1": "Asistencia al usurio técnico, en questiones de cualquier ámbito informático, creación de VPN conexión con Servidores en línea, gestión de dominios y subdominios, gestión de cuentas de correo electrónico, gestión de cuentas de usuario en equipos de trabajo,",
+                "p2": "Montaje y reparación de equipos de trabajo tanto portátiles como torres, instalación de sistemas operativos, gestión de software y hardware.",
+                "p3": "Creación y administración de páginas web en WordPress."
+            }
+        },
+        "company2": {
+            "title": "Técnico IT & Desarrollador Web",
+            "company": "Tréndico Group S.L.",
+            "date": "Enero 2021 - Octubre 2022",
+            "description": {
+                "p1": "Gestión y creación de Bases de Datos complejas tanto en MySQL, PostgreSQL y MongoDB. Realización de querys complejas para la búsqueda de datos, tanto en la base de datos como en las aplicaciones webs conectadas mediante API o conexión local.",
+                "p2": "Colaboración como desarrollador Frontend y diseñador de UI y UX en una intarnet creada con MERN (MongoDB, Express, React y NodeJS). Dicha web se conectaba igualmente a Firfebase para la gestión de usuarios y autenticación. Conexión a una Api creada con NodeJS y Express para la gestión y creación de datos.",
+                "p3": "Participación en el desarrollo de una aplicación móvil para Android e IOS como desarrollador Frontend. La App fue creada en React, Ionic y NodeJS. La app servía para hacer reservas de pistas de padel, disponía de apartado de usuario con historial de reservas y gestión de datos personales. También tenía un apartado de noticias y eventos, y un apartado de administrador para la gestión de las pistas y reservas.",
+                "p4": "Diseño UI y UX de una web e-commerce ya creada en php. El diseño era anticuado y se hizo un rediseño para que fuese responsive y se adaptase bien a todos los dispositivos."
+            }
+        },
+        "company3": {
+            "title": "Desarrollador Frontend",
+            "company": "Avanade Sapin",
+            "date": "Octubre 2022 - Actualidad",
+            "description": {
+                "p1": "Aún por descubrir..."
+            }
+        }
+    },
     "contact":{
         "title":"Contacta Conmigo",
         "form":{

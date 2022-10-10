@@ -77,5 +77,6 @@
   }
   .content__wrapper{
     width: 100%;
+    scroll-snap-type: y mandatory;  
   }
 }

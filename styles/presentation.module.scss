@@ -5,6 +5,7 @@
 .presentation{
     width: 100%;
     height: calc(100vh - 150px);
+    scroll-snap-align: start;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -17,6 +18,7 @@
     @include mobile {
         flex-direction: column-reverse;
         justify-content: center;
+        height: calc(100vh - 100px);
     }
     .description{
         display: flex;
