@@ -8,10 +8,16 @@ import { styled } from '@mui/material/styles';
 
 const StyledTabs = styled((props) => (
   <Tabs
+    className='MuiTabsCustom'
     {...props}
+    variant="scrollable"
+    scrollButtons="auto"
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
 ))({
+  '& .MuiTabs-scroller':{
+    overflow: 'scroll !important',
+  },
   '& .MuiTabs-indicator': {
     display: 'flex',
     justifyContent: 'center',

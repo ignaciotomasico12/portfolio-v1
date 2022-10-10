@@ -294,7 +294,8 @@
                 margin-right: 25px;
                 background-color: $title;
                 @include mobile {
-                    width: 90px;
+                    width: 100px;
+                    margin-right: 0px;
                 }
             }
         }

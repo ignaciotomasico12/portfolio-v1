@@ -79,6 +79,7 @@
             @include mobile {
                 width: 100%;
                 height: unset;
+                margin-top: 2rem;
             }
             width: 55%;
             height: 600px;
@@ -96,6 +97,9 @@
                 align-items: center;
                 align-content: center;
                 width: 100%;
+                @include mobile {
+                    font-size: 1.5rem;
+                }
                 &::after{
                     content: "";
                     display: block;
@@ -104,6 +108,10 @@
                     height: 2px;
                     margin-right: 25px;
                     background-color: $title;
+                    @include mobile {
+                        width: 220px;
+                        margin-right: 0px
+                    };
                 }
             }
             p{
