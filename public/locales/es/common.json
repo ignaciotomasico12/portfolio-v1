@@ -98,6 +98,12 @@
     "footer": {
         "contact-title": "Contacta conmigo"
     },
+    "cookies":{
+        "title": "Lo primero, las Cookies",
+        "description": "Esta web utiliza cookies para mejorar tu experiencia de usuario. Si sigues navegando, consideramos que aceptas su uso.",
+        "accept": "Aceptar Todas",
+        "deny": "Denegar Todas"
+    },
     "env":{
         "mode": {
             "dev": "Modo Desarrollo",

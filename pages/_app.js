@@ -1,52 +1,57 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import Layout from '../components/layout.js';
-import Script from "next/script";
 import { appWithTranslation } from 'next-i18next';
+import Script from "next/script";
+import Head from 'next/head';
+import { getCookie } from 'cookies-next';
 import '../styles/globals.scss';
 import '../styles/fontawesome/all.css';
-import * as gtag from "../lib/gtag";
 
 function MyApp({ Component, pageProps }) {
-
-  const router = useRouter();
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      gtag.pageview(url);
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
-
-
+  const consent = getCookie('localConsent');
   return (
     <>
+      <Head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+      </Head>
       <Script
-        id="gtm-script"
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-49EE3B2GDW`}
-      />
-      <Script
-        id="gtm-script-html"
+        id="gtag"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-49EE3B2GDW', {
-              page_path: window.location.pathname,
+
+            gtag('consent', 'default', {
+              'ad_storage': 'denied',
+              'analytics_storage': 'denied'
             });
-          `,
+
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                      })(window,document,'script','dataLayer','GTM-KS6J73B');`,
         }}
       />
+      {consent === true && (
+        <Script
+          id="consupd"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            gtag('consent', 'update', {
+              'ad_storage': 'granted',
+              'analytics_storage': 'granted'
+            });
+          `,
+          }}
+        />
+      )}
       <Layout>
         <Component {...pageProps} />
       </Layout>
     </>
-  )
+  );
 }
 
 export default appWithTranslation(MyApp);

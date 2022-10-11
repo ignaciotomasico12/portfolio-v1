@@ -12,7 +12,6 @@ function Navbar() {
     const menuList = [
         {icon: 'fa-brands fa-github', href: 'https://github.com/ignaciotomasico12', title: 'github'},
         {icon: 'fa-brands fa-linkedin-in', href: 'https://www.linkedin.com/in/ignacio-tom%C3%A1s-flor%C3%ADa-b0232b1b1/', title: 'linkedin'},
-        {icon: 'fa-brands fa-whatsapp', href: 'tel:628085095', title: 'phone'},
         {icon: 'fa-light fa-envelope', href: 'mailto:ignaciotomasico12@gmail.com', title: 'mail'},
     ]
 

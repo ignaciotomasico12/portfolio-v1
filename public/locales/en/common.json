@@ -98,6 +98,12 @@
     "footer": {
         "contact-title": "Contact me"
     },
+    "cookies":{
+        "title": "But first, the Cookies",
+        "description": "This website uses cookies to ensure you get the best experience on our website.",
+        "accept": "Accept All",
+        "deny": "Deny All"
+    },
     "env":{
         "mode": {
             "dev": "Develope Mode",

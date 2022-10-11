@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.4",
     "@mui/lab": "^5.0.0-alpha.102",
     "@mui/material": "^5.10.7",
+    "cookies-next": "^2.1.1",
     "email-templates": "^10.0.1",
     "i18next": "^21.9.2",
     "jquery": "^3.6.1",

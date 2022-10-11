@@ -1,0 +1,110 @@
+@import "variables.module.scss";
+@import "mixins.module.scss";
+
+.cookies {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    &.hidden{
+        display: none;
+    }
+    .cookie__wrapper{
+        position: fixed;
+        z-index: 9999;
+        left: 3%;
+        bottom: 3%;
+        transform: translate(-3%, -3%);
+        width: 40%;
+        max-width: 40%;
+        padding: 20px;
+        background-color: $btn_primary;
+        color: $white;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+        @include mobile {
+            max-width: 100%;
+            width: 100%;
+        }
+        .cookie__header{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+            h4{
+                font-size: 1.5rem;
+                font-family: $font-primary;
+                font-weight: 400;
+                line-height: 0;
+                word-spacing: 2px;
+                color: $title;
+                margin: 0;
+                i:last-child{
+                    margin-left: -15px;
+                    position: relative;
+                    z-index: 10;
+                    background-color: $btn_primary;
+                    border-radius: 50%;
+                    padding: 1px;
+                }
+            }
+            button{
+                background-color: transparent;
+                border: none;
+                border-radius: 50%;
+                width: 2.5rem;
+                height: 2.5rem;
+                transition: all 0.3s ease-in-out;
+                i{
+                    color: $white;
+                    font-size: 1.2rem;
+                }
+                &:hover{
+                    background-color: $btn_secondary;
+                    color: $primary;
+                    i{
+                        color: $primary;
+                    }
+                }
+            }
+        }
+        img{
+            width: 12%;
+            position: absolute;
+            top: -42px;
+            z-index: -5;
+            @include laptop{
+                top: -34px;
+            }
+        }
+        p{
+            font-size: 1rem;
+            font-family: $font-primary;
+            font-weight: 400;
+            line-height: 1.5rem;
+            word-spacing: 2px;
+            color: $white;
+        }
+        .cookie_buttons{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+            gap: 10px;
+            div:last-child{
+                div{
+                    border: none !important;
+                }
+            }
+        }
+    }
+}
+
