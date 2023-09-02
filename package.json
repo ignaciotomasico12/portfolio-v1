@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.10.7",
     "i18next": "^21.9.2",
     "next": "12.3.1",
